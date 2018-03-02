@@ -28,6 +28,19 @@ $path: "/public/images/";
   }
 }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
 // Spacings
@@ -64,7 +77,6 @@ $path: "/public/images/";
         margin-top: 0px;
     }
 }
-
 .bottom_60 {
     margin-bottom: 60px;
 }
@@ -88,4 +100,47 @@ $path: "/public/images/";
 }
 .bottom_0 {
     margin-bottom: 0px;
+}
+
+// bold text
+.bold {
+    font-weight: bold;
+}
+
+// image width fix
+.img-fix {
+    max-width: 100%;
+}
+
+// hr spacing
+.hr-60 {
+    margin: 60px 0;
+}
+
+/* Character count pattern */
+#character_count, #character_count_2, #character_count_3, #character_count_4, #character_count_5, #character_count_6, #character_count_7 {
+    color: #6F777B;
+    margin-top: 10px;
+    text-align: right;
+}
+
+// Adding £ to form inputs
+.input-icon {
+    position: relative;
+}
+
+.input-icon > i {
+    position: absolute;
+    display: block;
+    transform: translate(0, -50%);
+    top: 54%;
+    pointer-events: none;
+    width: 30px;
+    text-align: center;
+    font-style: normal;
+}
+
+.input-icon > input {
+    padding-left: 25px;
+    padding-right: 0;
 }

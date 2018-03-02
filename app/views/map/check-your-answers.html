@@ -1,0 +1,349 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-full">
+            <h1 class="heading-xlarge">Check your answers</h1>
+            
+            <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+            <!--   * `cya-questions-short` for short questions -->
+            <!--   * `cya-questions-long` for long questions -->
+            <!--   * none for single group of q&a -->
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question" style="border: none;">
+                        <h2 class="heading-medium">Your details</h2>
+                    </dt>
+                    <dd class="cya-answer" style="border: none;">
+                        &nbsp;
+                    </dd>
+                    <dd class="cya-change" style="border: none;">
+                        <a href="/map/your-details">Change<span class="visually-hidden"> your details</span></a>
+                    </dd>
+                </div>
+                
+                <div>
+                    <dt class="cya-question">
+                        Name
+                    </dt>
+                    <dd class="cya-answer">
+                        Sarah Philips
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Address
+                    </dt>
+                    <dd class="cya-answer">
+                        38A Baker Street<br>
+                        London<br>
+                        W1 7SX
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Home telephone
+                    </dt>
+                    <dd class="cya-answer">
+                        0203 123 5555
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Mobile number
+                    </dt>
+                    <dd class="cya-answer">
+                        07700 900457
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                    Email address
+                    </dt>
+                    <dd class="cya-answer">
+                    sam.smith@gmail.com
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Date of birth
+                    </dt>
+                    <dd class="cya-answer">
+                    1   8 May 2987
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Date of birth
+                    </dt>
+                    <dd class="cya-answer">
+                        18 May 2987
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        National Insurance number
+                    </dt>
+                    <dd class="cya-answer">
+                        AB 12 34 56 C
+                    </dd>
+                    <dd class="cya-change"></dd>
+                </div>
+            </dl>
+
+ 
+            
+            
+            
+            
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question" style="border: none;">
+                        <h2 class="heading-medium">Your plea</h2>
+                    </dt>
+                    <dd class="cya-answer" style="border: none;">
+                        &nbsp;
+                    </dd>
+                    <dd class="cya-change" style="border: none;">
+                        <a href="/map/your-plea">Change<span class="visually-hidden"> your plea</span></a>
+                    </dd>
+                </div>
+            </dl>
+                
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question">
+                        Plea
+                    </dt>
+                    <dd class="cya-answer">
+                        Guilty
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Coming to court
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        information for magistrates
+                    </dt>
+                    <dd class="cya-answer">
+                        Lorem ipsum dolor sit amet
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Interpreter
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Language
+                    </dt>
+                    <dd class="cya-answer">
+                        French
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Deduct from earnings?
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+            </dl>
+
+ 
+            
+            
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question" style="border: none;">
+                        <h2 class="heading-medium">Your finances</h2>
+                    </dt>
+                    <dd class="cya-answer" style="border: none;">
+                        &nbsp;
+                    </dd>
+                    <dd class="cya-change" style="border: none;">
+                        <a href="/map/your-finances">Change<span class="visually-hidden"> your finances</span></a>
+                    </dd>
+                </div>
+            </dl>
+                
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question">
+                        Forthnightly income (after tax)
+                    </dt>
+                    <dd class="cya-answer">
+                        £615
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Employment status
+                    </dt>
+                    <dd class="cya-answer">
+                        Employed (full-time)
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Claiming benefits?
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Benefits you are claiming
+                    </dt>
+                    <dd class="cya-answer">
+                        Child care
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Deduct from earnings?
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Employee reference
+                    </dt>
+                    <dd class="cya-answer">
+                        162738
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Employer's name
+                    </dt>
+                    <dd class="cya-answer">
+                        Sainsbury's
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Employer's address
+                    </dt>
+                    <dd class="cya-answer">
+                        Albert Road South<br>
+                        Watford<br>
+                        WD17 1PE
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Employer's telephone
+                    </dt>
+                    <dd class="cya-answer">
+                        01923 255252
+                    </dd>
+                </div>
+
+                <div>
+                    <dt class="cya-question">
+                        Deduct from benefits?
+                    </dt>
+                    <dd class="cya-answer">
+                        Yes
+                    </dd>
+                </div>
+
+            </dl>
+ 
+            
+ 
+            
+            
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question" style="border: none;">
+                        <h2 class="heading-medium">Monthly outgoings</h2>
+                    </dt>
+                    <dd class="cya-answer" style="border: none;">
+                        &nbsp;
+                    </dd>
+                    <dd class="cya-change" style="border: none;">
+                        <a href="/map/your-monthly-outgoings">Change<span class="visually-hidden"> monthly outgoings</span></a>
+                    </dd>
+                </div>
+            </dl>
+                
+            <dl class="govuk-check-your-answers cya-questions-short">
+                <div>
+                    <dt class="cya-question">
+                        Monthly amount
+                    </dt>
+                    <dd class="cya-answer">
+                        £850
+                    </dd>
+                </div>
+            </dl>
+
+            
+            
+            
+            <form class="form" action="" method="post">
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Confirm and continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+            </form>
+
+        </div>
+        
+        
+    </div>
+</main>
+
+{% endblock %}
