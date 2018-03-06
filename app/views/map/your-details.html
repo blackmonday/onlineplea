@@ -17,10 +17,10 @@
             <h2 class="heading-medium">Check your name and address</h2>
             
             <div class="panel panel-border-wide">
-                <p class="bold bottom_0">Sam Smith</p>
-                <p class="top_0 bottom_0">38A Baker Street</p>
-                <p class="top_0 bottom_0">London</p>
-                <p class="top_0">W1 7SX</p>
+                <p class="bold bottom_0">{{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}<!--Sam Smith--></p>
+                <p class="top_0 bottom_0">{{ data['defendant-address-line-1'] }}<!--38A Baker Street--></p>
+                <p class="top_0 bottom_0">{{ data['defendant-address-city'] }}<!--London--></p>
+                <p class="top_0">{{ data['defendant-address-postcode'] }}<!--W1 7SX--></p>
             </div>
 
             <form class="form" action="" method="post">
@@ -77,14 +77,14 @@
                     <p class="form-hint bottom_10">The court may need to contact you so they can resolve your case quickly - enter at least one number</p>
                     
                     <label class="form-label top_10" for="home-telephone">Home telephone (optional)</label>
-                    <input class="form-control" id="home-telephone" type="text" name="home-telephone">
+                    <input class="form-control" id="home-telephone" type="tel" name="home-telephone" value="{{ data['home-telephone'] }}">
 
                     <label class="form-label top_15" for="mobile-number">Mobile number (optional)</label>
-                    <input class="form-control" id="mobile-number" type="text" name="mobile-number">
+                    <input class="form-control" id="mobile-number" type="tel" name="mobile-number" value="{{ data['mobile-number'] }}">
                     
-                    <label class="form-label bold top_30 bottom_5" for="email">Email address</label>
+                    <label class="form-label bold top_30 bottom_5" for="email-address">Email address</label>
                     <p class="form-hint bottom_5">We will automatically email you confirmation when the plea is submitted</p>
-                    <input class="form-control" id="home-telephone" type="text" name="home-telephone">
+                    <input class="form-control" id="email-address" type="email" name="email-address" value="{{ data['email-address'] }}">
 
                     <fieldset>
                         <legend>
@@ -96,22 +96,22 @@
                         <div class="form-date">
                             <div class="form-group form-group-day">
                                 <label class="form-label" for="dob-day">Day</label>
-                                <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31">
+                                <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" value="{{ data['dob-day'] }}">
                             </div>
                             <div class="form-group form-group-month">
                                 <label class="form-label" for="dob-month">Month</label>
-                                <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+                                <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12" value="{{ data['dob-month'] }}">
                             </div>
                             <div class="form-group form-group-year">
                                 <label class="form-label" for="dob-year">Year</label>
-                                <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
+                                <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2018" value="{{ data['dob-year'] }}">
                             </div>
                         </div>
                     </fieldset>
                     
                     <label class="form-label bold top_30 bottom_5" for="nin">National Insurance number</label>
                     <p class="form-hint bottom_5">It's on your National Insurance card, benefit letter, payslip or P60 - for example, 'AB 12 34 56 C'</p>
-                    <input class="form-control" id="nin" type="text" name="nin">
+                    <input class="form-control" id="nin" type="text" name="nin" value="{{ data['nin'] }}">
 
 
                     

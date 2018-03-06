@@ -36,7 +36,7 @@
                         Name
                     </dt>
                     <dd class="cya-answer">
-                        Sarah Philips
+                        {{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -46,9 +46,9 @@
                         Address
                     </dt>
                     <dd class="cya-answer">
-                        38A Baker Street<br>
-                        London<br>
-                        W1 7SX
+                        {{ data['defendant-address-line-1'] }}<br>
+                        {{ data['defendant-address-city'] }}<br>
+                        {{ data['defendant-address-postcode'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -58,7 +58,7 @@
                         Home telephone
                     </dt>
                     <dd class="cya-answer">
-                        0203 123 5555
+                        {{ data['home-telephone'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -68,7 +68,7 @@
                         Mobile number
                     </dt>
                     <dd class="cya-answer">
-                        07700 900457
+                        {{ data['mobile-number'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -78,7 +78,7 @@
                     Email address
                     </dt>
                     <dd class="cya-answer">
-                    sam.smith@gmail.com
+                        {{ data['email-address'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -88,17 +88,7 @@
                         Date of birth
                     </dt>
                     <dd class="cya-answer">
-                    1   8 May 2987
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
-
-                <div>
-                    <dt class="cya-question">
-                        Date of birth
-                    </dt>
-                    <dd class="cya-answer">
-                        18 May 2987
+                        {{ data['dob-day'] }} &nbsp; {{ data['dob-month'] }} &nbsp; {{ data['dob-year'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>
@@ -108,7 +98,7 @@
                         National Insurance number
                     </dt>
                     <dd class="cya-answer">
-                        AB 12 34 56 C
+                        {{ data['nin'] }}
                     </dd>
                     <dd class="cya-change"></dd>
                 </div>

@@ -29,10 +29,11 @@
             <h2 class="heading-large">What you've been charged with</h2>
             
             <details open>
-                <summary><span class="summary">Passenger failing to produce a ticket</span></summary>
-                <div class="panel panel-border-narrow">
-                <p>On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.</p>
-                <p>Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.</p>
+                <summary><span class="summary">{{ data['charge-title'] }}<!--Passenger failing to produce a ticket--></span></summary>
+                <div class="panel panel-border-narrow charge-details">
+                    {{ data['charge-detail'] }}
+                    <!--<p>On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.</p>
+                    <p>Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.</p>-->
                 </div>
             </details>
 
