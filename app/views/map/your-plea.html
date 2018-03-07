@@ -50,7 +50,7 @@
                             <h3 class="heading-small">How do you plead?</h3>
                         </legend>
                         <div class="multiple-choice"  data-target="pleading-guilty">
-                            <input id="plea-1" type="radio" name="how-do-you-plead-group" value="Guilty">
+                            <input id="plea-1" type="radio" name="how-do-you-plead-group" value="Guilty" {{ checked('how-do-you-plead-group','Guilty') }}>
                             <label for="plea-1">Guilty</label>
                         </div>
                         <div class="js-hidden" id="pleading-guilty">
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="multiple-choice"  data-target="pleading-not-guilty">
-                            <input id="plea-2" type="radio" name="how-do-you-plead-group" value="Not guilty">
+                            <input id="plea-2" type="radio" name="how-do-you-plead-group" value="Not guilty" {{ checked('how-do-you-plead-group','Not guilty') }}>
                             <label for="plea-2">Not guilty</label>
                         </div>
                         <div class="js-hidden" id="pleading-not-guilty">

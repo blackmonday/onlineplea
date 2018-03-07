@@ -22,6 +22,9 @@ router.post('/map/find-your-case', function (req, res) {
     } else if (URN == "TVL") {
         req.session.data['charge-title'] = "TV Licensing charge title"
         req.session.data['charge-detail'] = "TV Licensing charge detail"
+    } else {
+        req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
+        req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
     }
     
     req.session.data['defendant-first-name'] = "Sam"
@@ -38,6 +41,28 @@ router.post('/map/find-your-case', function (req, res) {
 // You details
 router.post('/map/your-details', function (req, res) {
 
+    var new_first_name = req.session.data['new-defendant-first-name']
+    var new_last_name = req.session.data['new-defendant-last-name']
+    var new_address_line_1 = req.session.data['new-defendant-address-line-1']
+    var new_address_city = req.session.data['new-defendant-address-city']
+    var new_address_postcode = req.session.data['new-defendant-address-postcode']
+    
+    if (new_first_name != "") {
+        req.session.data['defendant-first-name'] = new_first_name
+    }
+    if (new_last_name != "") {
+        req.session.data['defendant-last-name'] = new_last_name
+    }
+    if (new_address_line_1 != "") {
+        req.session.data['defendant-address-line-1'] = new_address_line_1
+    }
+    if (new_address_city != "") {
+        req.session.data['defendant-address-city'] = new_address_city
+    }
+    if (new_address_postcode != "") {
+        req.session.data['defendant-address-postcode'] = new_address_postcode
+    }
+    
     res.redirect('/map/your-plea')
     
 })
@@ -153,24 +178,37 @@ router.post('/map/your-employment', function (req, res) {
 // Your monthly outgoings
 router.post('/map/your-monthly-outgoings', function (req, res) {
 
-  var outgoings = req.session.data['outgoings-group']
+    var outgoings = req.session.data['outgoings-group']
 
-  if (outgoings == "Yes"){
-    res.redirect('/map/your-monthly-outgoings-detail')
-  } else if (outgoings == "No"){
-    res.redirect('/map/check-your-answers')
-  } else {
-      res.redirect('/map/your-monthly-outgoings')
-  }
-        
-    
+    if (outgoings == "Yes"){
+        res.redirect('/map/your-monthly-outgoings-detail')
+    } else if (outgoings == "No"){
+        res.redirect('/map/check-your-answers')
+    } else {
+        res.redirect('/map/your-monthly-outgoings')
+    }
+          
 })
 
 // *******************************
 // Your monthly outgoings - detail
 router.post('/map/your-monthly-outgoings-detail', function (req, res) {
+    
+    var total = Number(req.session.data['accommodation']) + Number(req.session.data['council-tax']) + Number(req.session.data['household-bills']) + Number(req.session.data['travel-expense']) + Number(req.session.data['child-maintenance']) + Number(req.session.data['other-expenses-amount'])
+    
+    req.session.data['outgoings-total'] = parseFloat(total).toFixed(2)
+    
+    if (req.session.data['outgoings-total'] <= 0) {
+        req.session.data['outgoings-total'] = "No details given"
+    } else {
+        req.session.data['outgoings-total'] = "£" + parseFloat(total).toFixed(2)
+    }
+    
+    if (req.session.data['other-expenses-details'] != "") {
+        req.session.data['other-expenses-details'] = 'including: ' + req.session.data['other-expenses-details']
+    }
 
-  res.redirect('/map/check-your-answers')    
+    res.redirect('/map/check-your-answers')    
     
 })
 
@@ -188,7 +226,7 @@ router.post('/map/your-benefits', function (req, res) {
 // Check your answers
 router.post('/map/check-your-answers', function (req, res) {
 
-  res.redirect('/map/declaration')    
+    res.redirect('/map/declaration')    
     
 })
 

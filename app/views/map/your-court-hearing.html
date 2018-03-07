@@ -23,12 +23,12 @@
                             <h3 class="heading-small">Do you need an interpreter in court?</h3>
                         </legend>
                         <div class="multiple-choice"  data-target="interpreter-required">
-                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes">
+                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
                             <label for="interpreter-1">Yes</label>
                         </div>
                         
                         <div class="multiple-choice" data-target="details-not-correct">
-                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No">
+                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
                             <label for="interpreter-2">No</label>
                         </div>
                     </fieldset>
@@ -37,7 +37,7 @@
                         <div class="panel panel-border-wide top_15">
                             <p class="bottom_5">Which language?</p>
                             <p class="form-hint bottom_5">You can include sign language</p>
-                            <input class="form-control" id="interpeter-language" type="text" name="interpeter-language">
+                            <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
                         </div>
                     </div>
 

@@ -32,11 +32,11 @@
                             <h3 class="heading-small">Are these details correct?</h3>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="name-address-1" type="radio" name="name-address-group" value="Yes">
+                            <input id="name-address-1" type="radio" name="name-address-group" value="Yes" {{ checked('name-address-group','Yes') }}>
                             <label for="name-address-1">Yes</label>
                         </div>
                         <div class="multiple-choice" data-target="details-not-correct">
-                            <input id="name-address-2" type="radio" name="name-address-group" value="No">
+                            <input id="name-address-2" type="radio" name="name-address-group" value="No" {{ checked('name-address-group','No') }}>
                             <label for="name-address-2">No</label>
                         </div>
                     </fieldset>
@@ -45,28 +45,28 @@
                         <div class="panel panel-border-wide top_15">
                             <p class="bold">Changes to name</p>
 
-                            <label class="form-label" for="first-name">First name</label>
-                            <input class="form-control" id="first-name" type="text" name="first-name">
+                            <label class="form-label" for="new-defendant-first-name">First name</label>
+                            <input class="form-control" id="new-defendant-first-name" type="text" name="new-defendant-first-name" value="{{ data['new-defendant-first-name'] }}">
 
-                            <label class="form-label top_15" for="last-name">Last name</label>
-                            <input class="form-control" id="last-name" type="text" name="last-name">
+                            <label class="form-label top_15" for="new-defendant-last-name">Last name</label>
+                            <input class="form-control" id="new-defendant-last-name" type="text" name="new-defendant-last-name" value="{{ data['new-defendant-last-name'] }}">
                         </div>
 
                         <div class="panel panel-border-wide top_15">
                             <p class="bold">Changes to address</p>
 
-                            <label class="form-label" for="address-line">Address</label>
-                            <input class="form-control" id="address-line-1" type="text" name="address-line-1">
-                            <input class="form-control" id="address-line-2" type="text" name="address-line-2">
+                            <label class="form-label" for="new-defendant-address-line">Address</label>
+                            <input class="form-control" id="new-defendant-address-line-1" type="text" name="new-defendant-address-line-1">
+                            <input class="form-control" id="new-defendant-address-line-2" type="text" name="new-defendant-address-line-2">
 
-                            <label class="form-label top_15" for="city">Townn or city</label>
-                            <input class="form-control" id="city" type="text" name="city">
+                            <label class="form-label top_15" for="new-defendant-address-city">Townn or city</label>
+                            <input class="form-control" id="new-defendant-address-city" type="text" name="new-defendant-address-city">
 
-                            <label class="form-label top_15" for="county">County (optional)</label>
-                            <input class="form-control" id="county" type="text" name="county">
+                            <label class="form-label top_15" for="new-defendant-address-county">County (optional)</label>
+                            <input class="form-control" id="new-defendant-address-county" type="text" name="new-defendant-address-county">
 
-                            <label class="form-label top_15" for="postcode">Postcode</label>
-                            <input class="form-control" id="postcode" type="text" name="postcode">
+                            <label class="form-label top_15" for="new-defendant-address-postcode">Postcode</label>
+                            <input class="form-control" id="new-defendant-address-postcode" type="text" name="new-defendant-address-postcode">
 
                         </div>
                     </div>

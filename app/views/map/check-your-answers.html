@@ -6,6 +6,58 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+        
+        var outgoingsGroup = document.getElementById("outgoingsGroup").innerText;
+        if (outgoingsGroup == "No") {
+            document.getElementById("outgoingsDetail").style.display = "none";
+        }
+        
+        var homeTelephone = document.getElementById("homeTelephone").innerText;
+        if (homeTelephone == "") {
+            document.getElementById("homeTelephone").innerText = "No home telephone given";
+        }
+        
+        var mobileNumber = document.getElementById("mobileNumber").innerText;
+        if (mobileNumber == "") {
+            document.getElementById("mobileNumber").innerText = "No mobile number given";
+        }
+        
+        var mitigation = document.getElementById("mitigation").innerText;
+        if (mitigation == "") {
+            document.getElementById("mitigation").innerText = "No mitigation given";
+        }
+        
+        var comeToCourt = document.getElementById("comeToCourt").innerText;
+        if (comeToCourt == "No") {
+            document.getElementById("interpreterRequiredGroup").style.display = "none";
+            document.getElementById("interpreterLanguageGroup").style.display = "none";
+        }
+                
+        var interpreterRequired = document.getElementById("interpreterRequired").innerText;
+        if (interpreterRequired == "No") {
+            document.getElementById("interpreterLanguageGroup").style.display = "none";
+        }
+        
+        var employmentStatusGroup = document.getElementById("employmentStatus").innerText;
+        if ((employmentStatusGroup == "Unemployed") || (employmentStatusGroup == "Other")) {
+            document.getElementById("deductFromEarningsGroup").style.display = "none";
+            document.getElementById("employerReference").style.display = "none";
+            document.getElementById("employerName").style.display = "none";
+            document.getElementById("employerAddress").style.display = "none";
+            document.getElementById("employerTelephone").style.display = "none";
+        }
+
+        var claimingBenefitsGroup = document.getElementById("claimingBenefits").innerText;
+        if (claimingBenefitsGroup == "No") {
+            document.getElementById("deductFromBenefits").style.display = "none"; 
+            document.getElementById("benefitsYourAreClaiming").style.display = "none"; 
+        }
+    }
+        
+</script>
+
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
@@ -57,7 +109,7 @@
                     <dt class="cya-question">
                         Home telephone
                     </dt>
-                    <dd class="cya-answer">
+                    <dd class="cya-answer" id="homeTelephone">
                         {{ data['home-telephone'] }}
                     </dd>
                     <dd class="cya-change"></dd>
@@ -67,7 +119,7 @@
                     <dt class="cya-question">
                         Mobile number
                     </dt>
-                    <dd class="cya-answer">
+                    <dd class="cya-answer" id="mobileNumber">
                         {{ data['mobile-number'] }}
                     </dd>
                     <dd class="cya-change"></dd>
@@ -129,7 +181,7 @@
                         Plea
                     </dt>
                     <dd class="cya-answer">
-                        Guilty
+                        {{ data['how-do-you-plead-group'] }}
                     </dd>
                 </div>
 
@@ -137,8 +189,8 @@
                     <dt class="cya-question">
                         Coming to court
                     </dt>
-                    <dd class="cya-answer">
-                        Yes
+                    <dd class="cya-answer" id="comeToCourt">
+                        {{ data['do-you-want-to-come-to-court-group'] }}
                     </dd>
                 </div>
 
@@ -146,40 +198,38 @@
                     <dt class="cya-question">
                         information for magistrates
                     </dt>
-                    <dd class="cya-answer">
-                        Lorem ipsum dolor sit amet
+                    <dd class="cya-answer" id="mitigation">
+                        {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="interpreterRequiredGroup">
                     <dt class="cya-question">
-                        Interpreter
+                        Do you need an interpreter in court?
                     </dt>
-                    <dd class="cya-answer">
-                        Yes
+                    <dd class="cya-answer" id="interpreterRequired">
+                        {{ data['interpreter-group'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="interpreterLanguageGroup">
                     <dt class="cya-question">
                         Language
                     </dt>
-                    <dd class="cya-answer">
-                        French
-                    </dd>
-                </div>
-
-                <div>
-                    <dt class="cya-question">
-                        Deduct from earnings?
-                    </dt>
-                    <dd class="cya-answer">
-                        Yes
+                    <dd class="cya-answer" id="interpreterLanguage">
+                        {{ data['interpeter-language'] }}
                     </dd>
                 </div>
             </dl>
 
  
+            
+            
+            
+            
+            
+            
+            
             
             
             <dl class="govuk-check-your-answers cya-questions-short">
@@ -199,10 +249,10 @@
             <dl class="govuk-check-your-answers cya-questions-short">
                 <div>
                     <dt class="cya-question">
-                        Fortnightly income (after tax)
+                        Income (after tax)
                     </dt>
                     <dd class="cya-answer">
-                        £615
+                        £{{ data['average-income'] }} &nbsp; {{ data['income-freqency-group'] }}
                     </dd>
                 </div>
 
@@ -211,84 +261,88 @@
                         Employment status
                     </dt>
                     <dd class="cya-answer">
-                        Employed (full-time)
+                        <span id="employmentStatus">{{ data['employment-status-group'] }}</span> &nbsp; {{ data['other-income-details'] }}
                     </dd>
                 </div>
+
+                
 
                 <div>
                     <dt class="cya-question">
-                        Claiming benefits?
+                        Are you claiming any benefits?
                     </dt>
-                    <dd class="cya-answer">
-                        Yes
+                    <dd class="cya-answer" id="claimingBenefits">
+                        {{ data['claiming-benefits-group'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="deductFromBenefits">
+                    <dt class="cya-question">
+                        If you need to pay a penalty, would you like us to deduct it from your benefits?
+                    </dt>
+                    <dd class="cya-answer">
+                        {{ data['deductions-from-benefits-group'] }}
+                    </dd>
+                </div>
+
+                <div id="benefitsYourAreClaiming">
                     <dt class="cya-question">
                         Benefits you are claiming
                     </dt>
                     <dd class="cya-answer">
-                        Child care
+                        {{ data['claiming-benefits-details'] }}
                     </dd>
                 </div>
-
-                <div>
+                
+                <div id="deductFromEarningsGroup">
                     <dt class="cya-question">
                         Deduct from earnings?
                     </dt>
                     <dd class="cya-answer">
-                        Yes
+                        {{ data['deductions-from-earnings-group'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="employerReference">
                     <dt class="cya-question">
                         Employee reference
                     </dt>
                     <dd class="cya-answer">
-                        162738
+                        {{ data['employee-reference'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="employerName">
                     <dt class="cya-question">
                         Employer's name
                     </dt>
                     <dd class="cya-answer">
-                        Sainsbury's
+                        {{ data['employer-name'] }}
                     </dd>
                 </div>
 
-                <div>
+                <div id="employerAddress">
                     <dt class="cya-question">
                         Employer's address
                     </dt>
                     <dd class="cya-answer">
-                        Albert Road South<br>
-                        Watford<br>
-                        WD17 1PE
+                        {{ data['employer-address-line-1'] }}<br>
+                        {{ data['employer-address-line-2'] }}<br>
+                        {{ data['employer-city'] }}<br>
+                        {{ data['employer-county'] }}<br>
+                        {{ data['employer-postcode'] }}<br>
                     </dd>
                 </div>
 
-                <div>
+                <div id="employerTelephone">
                     <dt class="cya-question">
                         Employer's telephone
                     </dt>
                     <dd class="cya-answer">
-                        01923 255252
+                        {{ data['employer-telephone'] }}
                     </dd>
                 </div>
-
-                <div>
-                    <dt class="cya-question">
-                        Deduct from benefits?
-                    </dt>
-                    <dd class="cya-answer">
-                        Yes
-                    </dd>
-                </div>
-
+                                    
             </dl>
  
             
@@ -308,14 +362,23 @@
                     </dd>
                 </div>
             </dl>
-                
+            
             <dl class="govuk-check-your-answers cya-questions-short">
                 <div>
+                    <dt class="cya-question">
+                        Would you like to give details of your personal bills?
+                    </dt>
+                    <dd class="cya-answer" id="outgoingsGroup">
+                        {{ data['outgoings-group'] }}
+                    </dd>
+                </div>
+
+                <div class="outgoings-detail" id="outgoingsDetail">
                     <dt class="cya-question">
                         Monthly amount
                     </dt>
                     <dd class="cya-answer">
-                        £850
+                        {{ data['outgoings-total'] }} {{ data['other-expenses-details'] }}
                     </dd>
                 </div>
             </dl>

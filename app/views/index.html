@@ -7,21 +7,28 @@
 {% block content %}
 
 <main id="content" role="main">
-  <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="grid-row">
+        <div class="column-two-thirds">
 
-      <h1 class="heading-xlarge">
-        Make a plea
-        <span class="heading-secondary">Also know as 'online plea' this design demo used GOV.UK prototype kit {{releaseVersion}}</span>
-      </h1>{{releaseVersion | log }}
+            <h1 class="heading-xlarge">
+            Make a plea
+            <span class="heading-secondary">Also know as 'online plea' this design demo used GOV.UK prototype kit {{releaseVersion}}</span>
+            </h1>{{releaseVersion | log }}
 
-      <p>
-        <a href="map/start-page.html">Let's get started!</a>
-      </p>
+            <p>To get the most out of this demo use the following:</p>
+            <p>Case or unique reference number</p>
+            <ul class="list list-bullet">
+                <li>TFL - currently has realistic data</li>
+                <li>TVL - currentlty using placeholder data</li>
+            </ul>
 
 
+            <p>
+            <a href="map/start-page.html">Let's get started!</a>
+            </p>
+
+        </div>
     </div>
-  </div>
 </main>
 
 {% endblock %}

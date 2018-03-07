@@ -29,11 +29,11 @@
                             <h3 class="heading-small">Would you like to come to court?</h3>
                         </legend>
                         <div class="multiple-choice">
-                            <input id="court-1" type="radio" name="do-you-want-to-come-to-court-group" value="No">
+                            <input id="court-1" type="radio" name="do-you-want-to-come-to-court-group" value="No" {{ checked('do-you-want-to-come-to-court-group','No') }}>
                             <label for="court-1">No, I do not want to come to court</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="court-2" type="radio" name="do-you-want-to-come-to-court-group" value="Yes">
+                            <input id="court-2" type="radio" name="do-you-want-to-come-to-court-group" value="Yes" {{ checked('do-you-want-to-come-to-court-group','Yes') }}>
                             <label for="court-2">Yes, I want to come to court</label>
                         </div>
                     </fieldset>
@@ -48,7 +48,7 @@
                         <p class="heading-small">Information for magistrates (optional)</p>
                         <p class="form-hint bottom_5">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances. They’ll take what you say into account when deciding on your sentence.</p>
                     </label>
-                    <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%"></textarea>
+                    <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%">{{ data['mitigation'] }}</textarea>
                     <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
 
                 </div>
