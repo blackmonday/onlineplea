@@ -13,23 +13,28 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             
-            <form class="form" action="" method="post">
+            <form class="form" method="post">
+
+                <h1 class="heading-xlarge">Find your case</h1>
+                
+                <div class="form-group">
+                    <fieldset data-required data-error="custom error message">
+                        <label class="form-label bold" for="URN">Case or unique reference number</label>
+                        <input class="form-control" id="URN" type="text" name="URN">
+                        <details>
+                            <summary class="top_5"><span class="summary">Where to find this on your notice</span></summary>
+                            <div class="panel panel-border-narrow">
+                                <img src="/public/images/find-your-case/Where%20to%20find%20-%20large%202x.png" class="img-fix" title="Thsi image shows where you can find your case or unique reference number">
+                            </div>
+                        </details>
+                    </fieldset>
+                </div>
 
                 <div class="form-group">
-                    <h1 class="heading-xlarge">Find your case</h1>
-
-                    <label class="form-label bold" for="URN">Case or unique reference number</label>
-                    <input class="form-control" id="URN" type="text" name="URN">
-
-                    <details>
-                        <summary class="top_5"><span class="summary">Where to find this on your notice</span></summary>
-                        <div class="panel panel-border-narrow">
-                            <img src="/public/images/find-your-case/Where%20to%20find%20-%20large%202x.png" class="img-fix" title="Thsi image shows where you can find your case or unique reference number">
-                        </div>
-                    </details>
-
-                    <label class="form-label bold top_15" for="post-code">Your postcode, as shown on your notice</label>
-                    <input class="form-control" id="post-code" type="text" name="post-code">
+                    <fieldset data-required data-error="Cannot be blank">
+                        <label class="form-label bold top_15" for="post-code">Your postcode, as shown on your notice</label>
+                        <input class="form-control" id="post-code" type="text" name="post-code">
+                    </fieldset>
                 </div>
 
                 <div class="form-group">
