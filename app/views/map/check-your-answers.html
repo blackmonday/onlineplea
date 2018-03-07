@@ -24,6 +24,11 @@
             document.getElementById("mobileNumber").innerText = "No mobile number given";
         }
         
+        var nin = document.getElementById("nin").innerText;
+        if (nin == "") {
+            document.getElementById("nin").innerText = "No National Insurance number given";
+        }
+        
         var mitigation = document.getElementById("mitigation").innerText;
         if (mitigation == "") {
             document.getElementById("mitigation").innerText = "No mitigation given";
@@ -149,7 +154,7 @@
                     <dt class="cya-question">
                         National Insurance number
                     </dt>
-                    <dd class="cya-answer">
+                    <dd class="cya-answer" id="nin">
                         {{ data['nin'] }}
                     </dd>
                     <dd class="cya-change"></dd>

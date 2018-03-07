@@ -16,7 +16,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     var URN = req.session.data['URN']
 
-    if (URN == "TFL") {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
         req.session.data['charge-title'] = "Passenger failing to produce a ticket"
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
     } else if (URN == "TVL") {
