@@ -1,6 +1,6 @@
 // Config
-var defaultErrorHeading = 'There\'s been a problem';
-var defaultErrorDescription = 'Check the following';
+var defaultErrorHeading = 'You need to fix the errors on this page before continuing - see the highlighted errors below:';
+var defaultErrorDescription = 'See the highlighted errors below:';
 var defaultErrorMessage = 'There is an error';
 
 function clearValidation() {
@@ -34,7 +34,8 @@ function checkTextFields(errors) {
         {
           id: $(this).attr('id'),
           name: $(this).attr('name'),
-          errorMessage: $formgroup.attr('data-error').toLowerCase() || defaultErrorMessage.toLowerCase(),
+          //errorMessage: $formgroup.attr('data-error').toLowerCase() || defaultErrorMessage.toLowerCase(),
+          errorMessage: $formgroup.attr('data-error') || defaultErrorMessage,
           label: label,
           type: 'text, password'
         }
@@ -62,7 +63,8 @@ function checkSelectors(errors) {
           {
             id: $(this).attr('id'),
             name: $(this).attr('name'),
-            errorMessage: $fieldset.attr('data-error').toLowerCase() || defaultErrorMessage.toLowerCase(),
+            //errorMessage: $fieldset.attr('data-error').toLowerCase() || defaultErrorMessage.toLowerCase(),
+            errorMessage: $fieldset.attr('data-error') || defaultErrorMessage,
             label: label,
             type: 'text, password'
           }
@@ -78,9 +80,9 @@ function appendErrorSummary() {
       '<h1 class="heading-medium error-summary-heading" id="error-summary-heading">' +
         defaultErrorHeading +
       '</h1>' +
-      '<p>' +
+      /*'<p>' +
         defaultErrorDescription +
-      '</p>' +
+      '</p>' +*/
       '<ul class="error-summary-list">' +
       '</ul>' +
     '</div>';
@@ -94,7 +96,7 @@ function appendErrorMessages(errors) {
   for (var i = 0; i < errors.length; i++) {
     if ($(document).find('a[href="#' + errors[i].id + '"]').length === 0) {
       $('.error-summary-list').append(
-        '<li><a href="#' + errors[i].id + '">' + errors[i].label + ' - ' + errors[i].errorMessage + '</a></li>'
+        '<li class="top_15"><a href="#' + errors[i].id + '">' + errors[i].label + ' - ' + errors[i].errorMessage + '</a></li>'
       );
       var $formgroup = $(document).find('#' + errors[i].id).parents('.form-group');
       $formgroup.addClass('form-group-error');
