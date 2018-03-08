@@ -12,22 +12,20 @@
 
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-xlarge">Guilty plea</h1>
-                        
-            <div class="panel panel-border-wide">
-                <p>You have the right to attend an open court hearing but don’t have to. The magistrate can also consider your case without you and send you their decision by post.</p>
-                <p>If you are needed to attend court we will write to you.</p>
-                <p>Magistrates follow the same guidelines either way.</p>
-            </div>
-
+            
             <form class="form" action="" method="post">
 
-                <div class="form-group">
+                <h1 class="heading-xlarge">Guilty plea</h1>
 
-                    <fieldset>
-                        <legend>
-                            <h3 class="heading-small">Would you like to come to court?</h3>
-                        </legend>
+                <div class="panel panel-border-wide">
+                    <p>You have the right to attend an open court hearing but don’t have to. The magistrate can also consider your case without you and send you their decision by post.</p>
+                    <p>If you are needed to attend court we will write to you.</p>
+                    <p>Magistrates follow the same guidelines either way.</p>
+                </div>
+
+                <div class="form-group">
+                    <fieldset data-required data-error="Choose an answer">
+                        <legend class="heading-small">Would you like to come to court?</legend>
                         <div class="multiple-choice">
                             <input id="court-1" type="radio" name="do-you-want-to-come-to-court-group" value="No" {{ checked('do-you-want-to-come-to-court-group','No') }}>
                             <label for="court-1">No, I do not want to come to court</label>
@@ -37,7 +35,6 @@
                             <label for="court-2">Yes, I want to come to court</label>
                         </div>
                     </fieldset>
-
                 </div>
                 
                 <hr>

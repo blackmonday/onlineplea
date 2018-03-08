@@ -12,23 +12,29 @@
 
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-xlarge">Deductions from earnings</h1>
             
-            <p class="bold">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</p>
-            
-            <p class="bottom_10">The court may deduct a penalty from your earnings if:</p>
-            <ul class="list list-bullet">
-                <li>you've failed to pay in the past</li>
-                <li>you're ordered to pay compensation, as part of your penalty</li>
-            </ul>
-            
-            <p class="bottom_0">For guideance on amount of deduction please visit:</p>
-            <p><a href="http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made" target="_blank">http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made</a></p>
-
             <form class="form" action="" method="post">
+            
+                <h1 class="heading-xlarge">Deductions from earnings</h1>
 
                 <div class="form-group">
-                    <fieldset class="inline">
+                    <fieldset class="inline" data-required data-error="Tell us if you would like us to deduct it from your earnings">
+
+                        <legend>
+                            <label class="bold">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</label>
+                            
+                            <p class="bottom_10">The court may deduct a penalty from your earnings if:</p>
+                            <ul class="list list-bullet">
+                                <li>you've failed to pay in the past</li>
+                                <li>you're ordered to pay compensation, as part of your penalty</li>
+                            </ul>
+
+                            <p class="bottom_0">For guideance on amount of deduction please visit:</p>
+                            <p><a href="http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made" target="_blank">http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made</a></p>
+
+                        </legend>
+
+
                         <div class="multiple-choice">
                             <input id="deductions-from-earnings-1" type="radio" name="deductions-from-earnings-group" value="Yes">
                             <label for="deductions-from-earnings-1">Yes</label>

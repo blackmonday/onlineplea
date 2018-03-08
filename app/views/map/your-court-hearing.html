@@ -12,16 +12,14 @@
 
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-xlarge">Your court hearing</h1>
             
             <form class="form" action="" method="post">
+                            
+            <h1 class="heading-xlarge">Your court hearing</h1>
 
                 <div class="form-group">
-
-                    <fieldset class="inline">
-                        <legend>
-                            <h3 class="heading-small">Do you need an interpreter in court?</h3>
-                        </legend>
+                    <fieldset class="inline" data-required data-error="Choose an answer">
+                        <legend class="heading-small">Do you need an interpreter in court?</legend>
                         <div class="multiple-choice"  data-target="interpreter-required">
                             <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
                             <label for="interpreter-1">Yes</label>
@@ -32,15 +30,18 @@
                             <label for="interpreter-2">No</label>
                         </div>
                     </fieldset>
+                </div>
                     
-                    <div class="js-hidden top_15" id="interpreter-required">
-                        <div class="panel panel-border-wide top_15">
-                            <p class="bottom_5">Which language?</p>
-                            <p class="form-hint bottom_5">You can include sign language</p>
-                            <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="interpreter-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Which language?</p>
+                                <p class="form-hint bottom_5">You can include sign language</p>
+                                <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
+                            </div>
                         </div>
-                    </div>
-
+                    </fieldset>
                 </div>
 
                 <div class="form-group">

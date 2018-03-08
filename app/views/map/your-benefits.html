@@ -12,13 +12,14 @@
 
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-xlarge">Your benefits</h1>
             
             <form class="form" action="" method="post">
 
+                <h1 class="heading-xlarge">Your benefits</h1>
+
                 <div class="form-group">
-                    <fieldset class="inline">
-                        <p class="bold bottom_15">If you need to pay a penalty, woudl you like us to deduct it from your benefits?</p>
+                    <fieldset class="inline" data-required data-error="Choose an answer">
+                        <legend class="bold bottom_15">If you need to pay a penalty, would you like us to deduct it from your benefits?</legend>
                         <div class="multiple-choice">
                             <input id="deductions-from-benefits-1" type="radio" name="deductions-from-benefits-group" value="Yes" {{ checked('deductions-from-benefits-group','Yes') }}>
                             <label for="deductions-from-benefits-1">Yes</label>

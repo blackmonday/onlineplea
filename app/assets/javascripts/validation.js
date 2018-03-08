@@ -20,7 +20,7 @@ function clearValidation() {
 }
 
 function checkTextFields(errors) {
-  $(document).find('input[type="text"],input[type="password"], textarea').each(function () {
+  $(document).find('input[type="text"],input[type="number"],input[type="email"],input[type="password"], textarea').each(function () {
     //var $formgroup = $(this).parents('.form-group');
     var $formgroup = $(this).parents('fieldset');
     var label = $(this).parent().find('label').clone().children().remove().end().text();
