@@ -18,8 +18,9 @@
                 <h1 class="heading-xlarge">Find your case</h1>
                 
                 <div class="form-group">
-                    <fieldset data-required data-error="The Unique Reference Number (URN) isn't valid - Enter the URN exactly as it appears on your notice. Contact the Contact Centre if you don't know it">
-                        <label class="form-label bold" for="URN">Case or unique reference number</label>
+                    <fieldset data-required data-error="Enter your unique reference number">
+                        <label class="form-label bold" for="URN" style="display: none">Case or unique reference number</label>
+                        <legend class="form-label bold" for="URN">Case or unique reference number</legend>
                         <input class="form-control" id="URN" type="text" name="URN">
                         <details>
                             <summary class="top_5"><span class="summary">Where to find this on your notice</span></summary>
@@ -32,7 +33,8 @@
 
                 <div class="form-group">
                     <fieldset data-required data-error="Enter your postcode">
-                        <label class="form-label bold top_15" for="post-code">Your postcode, as shown on your notice</label>
+                        <label class="form-label bold top_15" for="post-code" style="display: none">Your postcode</label>
+                        <legend class="form-label bold top_15" for="post-code">Your postcode, as shown on your notice</legend>
                         <input class="form-control" id="post-code" type="text" name="post-code">
                     </fieldset>
                 </div>

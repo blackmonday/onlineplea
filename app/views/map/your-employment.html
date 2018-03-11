@@ -21,14 +21,14 @@
                     <fieldset class="inline">
                         <label class="form-label bold" for="employee-reference">Employee reference (optional)</label>
                         <span class="form-hint">Also know as employee number or payroll reference - this shoudl be on your payslip</span>
-                        <input class="form-control" id="employee-reference" type="text" name="employee-reference">
+                        <input class="form-control" id="employee-reference" type="text" name="employee-reference"  value="{{ data['employee-reference'] }}">
                     </fieldset>
                 </div>
                 
                 <div class="form-group">
                     <fieldset class="inline" data-required data-error="You must provide your employer's name">
                         <label class="form-label bold top_15" for="employer-address">Employer name</label>
-                        <input class="form-control" id="employer-name" type="text" name="employer-name">
+                        <input class="form-control" id="employer-name" type="text" name="employer-name" value="{{ data['employer-name'] }}">
                     </fieldset>
                 </div>
 
@@ -44,41 +44,41 @@
                 <div class="form-group">
                     <fieldset class="inline" data-required data-error="You must provide your employer's address">
                         <label class="form-label bold top_15" for="employer-address">Address line 1</label>
-                        <input class="form-control" id="employer-address-line-1" type="text" name="employer-address-line-1">
+                        <input class="form-control" id="employer-address-line-1" type="text" name="employer-address-line-1" value="{{ data['employer-address-line-1'] }}">
                     </fieldset>
                 </div>
                 <div class="form-group">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="employer-address">Address line 2 (optional)</label>
-                        <input class="form-control" id="employer-address-line-2" type="text" name="employer-address-line-2">
+                        <input class="form-control" id="employer-address-line-2" type="text" name="employer-address-line-2" value="{{ data['employer-address-line-2'] }}">
                     </fieldset>
                 </div>
 
                 <div class="form-group">
                     <fieldset class="inline" data-required data-error="You must provide your employer's town or city">
                         <label class="form-label bold top_15" for="employer-address">Town or city</label>
-                        <input class="form-control" id="employer-city" type="text" name="employer-city">
+                        <input class="form-control" id="employer-city" type="text" name="employer-city" value="{{ data['employer-city'] }}">
                     </fieldset>
                 </div>
 
                 <div class="form-group">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="employer-address">County (optional)</label>
-                        <input class="form-control" id="employer-county" type="text" name="employer-county">
+                        <input class="form-control" id="employer-county" type="text" name="employer-county" value="{{ data['employer-county'] }}">
                     </fieldset>
                 </div>
 
                 <div class="form-group">
                     <fieldset class="inline" data-required data-error="You must provide your employer's postcode">
                         <label class="form-label bold top_15" for="employer-address">Postcode</label>
-                        <input class="form-control" id="employer-postcode" type="text" name="employer-postcode">
+                        <input class="form-control" id="employer-postcode" type="text" name="employer-postcode" value="{{ data['employer-postcode'] }}">
                     </fieldset>
                 </div>
 
                 <div class="form-group">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="employer-address">Employer telephone (optional)</label>
-                        <input class="form-control" id="employer-telephone" type="text" name="employer-telephone">
+                        <input class="form-control" id="employer-telephone" type="text" name="employer-telephone"  value="{{ data['employer-telephone'] }}">
                         
                     </fieldset>
                 </div>

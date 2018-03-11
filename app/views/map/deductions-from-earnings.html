@@ -21,6 +21,7 @@
                     <fieldset class="inline" data-required data-error="Tell us if you would like us to deduct it from your earnings">
 
                         <legend>
+                            <legend class="bold" style="display: none">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</legend>
                             <label class="bold">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</label>
                             
                             <p class="bottom_10">The court may deduct a penalty from your earnings if:</p>
@@ -36,11 +37,11 @@
 
 
                         <div class="multiple-choice">
-                            <input id="deductions-from-earnings-1" type="radio" name="deductions-from-earnings-group" value="Yes">
+                            <input id="deductions-from-earnings-1" type="radio" name="deductions-from-earnings-group" value="Yes" {{ checked('deductions-from-earnings-group','Yes') }}>
                             <label for="deductions-from-earnings-1">Yes</label>
                         </div>
                         <div class="multiple-choice">
-                            <input id="deductions-from-earnings-2" type="radio" name="deductions-from-earnings-group" value="No">
+                            <input id="deductions-from-earnings-2" type="radio" name="deductions-from-earnings-group" value="No" {{ checked('deductions-from-earnings-group','No') }}>
                             <label for="deductions-from-earnings-2">No</label>
                         </div>
                     </fieldset>

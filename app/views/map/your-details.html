@@ -22,7 +22,9 @@
                 <div class="panel panel-border-wide">
                     <p class="bold bottom_0">{{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}<!--Sam Smith--></p>
                     <p class="top_0 bottom_0">{{ data['defendant-address-line-1'] }}<!--38A Baker Street--></p>
+                    <p class="top_0 bottom_0">{{ data['defendant-address-line-2'] }}<!--address line 2--></p>
                     <p class="top_0 bottom_0">{{ data['defendant-address-city'] }}<!--London--></p>
+                    <p class="top_0 bottom_0">{{ data['defendant-address-county'] }}<!--county--></p>
                     <p class="top_0">{{ data['defendant-address-postcode'] }}<!--W1 7SX--></p>
                 </div>
 
@@ -59,17 +61,17 @@
                                 <p class="bold">Changes to address</p>
 
                                 <label class="form-label" for="new-defendant-address-line">Address</label>
-                                <input class="form-control bottom_5" id="new-defendant-address-line-1" type="text" name="new-defendant-address-line-1">
-                                <input class="form-control" id="new-defendant-address-line-2" type="text" name="new-defendant-address-line-2">
+                                <input class="form-control bottom_5" id="new-defendant-address-line-1" type="text" name="new-defendant-address-line-1" value="{{ data['new-defendant-address-line-1'] }}">
+                                <input class="form-control" id="new-defendant-address-line-2" type="text" name="new-defendant-address-line-2" value="{{ data['new-defendant-address-line-2'] }}">
 
                                 <label class="form-label top_30" for="new-defendant-address-city">Town or city</label>
-                                <input class="form-control" id="new-defendant-address-city" type="text" name="new-defendant-address-city">
+                                <input class="form-control" id="new-defendant-address-city" type="text" name="new-defendant-address-city" value="{{ data['new-defendant-address-city'] }}">
 
                                 <label class="form-label top_15" for="new-defendant-address-county">County (optional)</label>
-                                <input class="form-control" id="new-defendant-address-county" type="text" name="new-defendant-address-county">
+                                <input class="form-control" id="new-defendant-address-county" type="text" name="new-defendant-address-county" value="{{ data['new-defendant-address-county'] }}">
 
                                 <label class="form-label top_15" for="new-defendant-address-postcode">Postcode</label>
-                                <input class="form-control" id="new-defendant-address-postcode" type="text" name="new-defendant-address-postcode">
+                                <input class="form-control" id="new-defendant-address-postcode" type="text" name="new-defendant-address-postcode" value="{{ data['new-defendant-address-postcode'] }}">
 
                             </div>
                         </div>
@@ -111,15 +113,15 @@
                         <div class="form-date">
                             <div class="form-group-2">
                                 <label for="dob-day">Day</label>
-                                <input class="form-control" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint" style="width: 50px; margin-right: 15px">
+                                <input class="form-control" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint" style="width: 50px; margin-right: 15px" value="{{ data['dob-day'] }}">
                             </div>
                             <div class="form-group-2">
                                 <label for="dob-month">Month</label>
-                                <input class="form-control" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" min="0" max="12" style="width: 50px; margin-right: 15px">
+                                <input class="form-control" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" min="0" max="12" style="width: 50px; margin-right: 15px" value="{{ data['dob-month'] }}">
                             </div>
                             <div class="form-group-2">
                                 <label for="dob-year">Year</label>
-                                <input class="form-control" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" min="0" max="2016" style="width: 100px">
+                                <input class="form-control" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" min="0" max="2016" style="width: 100px" value="{{ data['dob-year'] }}">
                             </div>
                         </div>
                     </fieldset>

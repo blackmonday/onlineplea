@@ -19,6 +19,7 @@
                 <div class="form-group">
                     <fieldset data-required data-error="You must tell us the frequency of your income">
                         <legend class="bold">What is the frequency of your income?</legend>
+                        <label class="bold" style="display: none">What is the frequency of your income?</label>
                         <div class="multiple-choice">
                             <input id="income-freqency-1" type="radio" name="income-freqency-group" value="Weekly" {{ checked('income-freqency-group','Weekly') }}>
                             <label for="income-freqency-1">Weekly</label>
@@ -40,10 +41,8 @@
                     
                 <div class="form-group">
                     <fieldset data-required data-error="You must provide your average income (after tax) - for example 1357.48">
-                        <legend>
-                            <label class="form-label bold top_30" for="average-income">Your average income (after tax)</label>
+                        <legend class="form-label bold top_30" for="average-income">Your average income (after tax)</legend>
                             <p class="form-hint bottom_0">Include earnings, pension, benefits and any other income</p>
-                        </legend>
                         <div class="input-icon">
                             <i>£</i>
                             <input class="form-control" id="average-income" type="number" min="0.01" step="0.01" name="average-income" value="{{ data['average-income'] }}">
@@ -94,10 +93,8 @@
 
                 <div class="form-group bottom_0">
                     <fieldset class="inline" data-required data-error="You must tell us if you are claiming benefits">
-                        <legend>
-                            <label class="heading-small top_30">Are you claiming any benefits?</label>
+                        <legend class="heading-small top_30">Are you claiming any benefits?</legend>
                             <p class="form-hint">If you only get Child Benefit, answer 'No'</p>
-                        </legend>
                         <div class="multiple-choice"  data-target="are-you-claiming-benefits">
                             <input id="claiming-benefits-1" type="radio" name="claiming-benefits-group" value="Yes" {{ checked('claiming-benefits-group','Yes') }}>
                             <label for="claiming-benefits-1">Yes</label>

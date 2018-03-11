@@ -44,7 +44,9 @@ router.post('/map/your-details', function (req, res) {
     var new_first_name = req.session.data['new-defendant-first-name']
     var new_last_name = req.session.data['new-defendant-last-name']
     var new_address_line_1 = req.session.data['new-defendant-address-line-1']
+    var new_address_line_2 = req.session.data['new-defendant-address-line-2']
     var new_address_city = req.session.data['new-defendant-address-city']
+    var new_address_county = req.session.data['new-defendant-address-county']
     var new_address_postcode = req.session.data['new-defendant-address-postcode']
     
     if (new_first_name != "") {
@@ -56,8 +58,14 @@ router.post('/map/your-details', function (req, res) {
     if (new_address_line_1 != "") {
         req.session.data['defendant-address-line-1'] = new_address_line_1
     }
+    if (new_address_line_2 != "") {
+        req.session.data['defendant-address-line-2'] = new_address_line_2
+    }
     if (new_address_city != "") {
         req.session.data['defendant-address-city'] = new_address_city
+    }
+    if (new_address_county != "") {
+        req.session.data['defendant-address-county'] = new_address_county
     }
     if (new_address_postcode != "") {
         req.session.data['defendant-address-postcode'] = new_address_postcode
