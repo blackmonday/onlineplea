@@ -19,7 +19,7 @@
 
                 <p class="heading-medium">What are your monthly bills for the following?</p>
             
-                <div class="form-group">
+                <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <label class="form-label bold" for="accommodation">Accommodation</label>
                         <span class="form-hint">For example, rent, mortgage or lodgings</span>
@@ -30,7 +30,7 @@
                     </fieldset>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="council-tax">Council tax</label>
                         <div class="input-icon">
@@ -40,7 +40,7 @@
                     </fieldset>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="household-bills">Household bills</label>
                         <span class="form-hint">For example, gas, electricity, water, insurance</span>
@@ -51,7 +51,7 @@
                     </fieldset>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="travel-expense">Travel expenses</label>
                         <span class="form-hint">For example, fuel, car, public transport</span>
@@ -62,7 +62,7 @@
                     </fieldset>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <label class="form-label bold top_15" for="child-maintenance">Child maintenance</label>
                         <div class="input-icon">
@@ -72,7 +72,7 @@
                     </fieldset>
                 </div>
 
-                 <div class="form-group">
+                 <div class="form-group bottom_0">
                     <fieldset class="inline">
                         <legend>
                             <h3 class="heading-small">Any other significant expenses not listed?</h3>
@@ -93,7 +93,7 @@
                     <fieldset class="inline">
                         <div class="js-hidden top_15" id="other-expenses-detail">
                             <div class="panel panel-border-wide top_15">
-                                <p class="bottom_5 form-hint">List any other outgoings or information you believe the court should know about</p>
+                                <p class="bottom_5">List any other outgoings or information you believe the court should know about</p>
                                 <textarea class="form-control form-control-3-4" name="other-expenses-details" id="other-expenses-details" rows="5">{{ data['other-expenses-details'] }}</textarea>
                                 <div class="font-xsmall form-control-3-4" id="character_count_6"></div>
                                 <label class="form-label bold top_15" for="other-expenses-amount">Amount of other significant expenses</label>
@@ -118,6 +118,7 @@
         <div class="column-third">
             {% include "includes/map/help-and-advice-header.html" %}
             {% include "includes/map/help-and-advice-3.html" %}
+            {% include "includes/map/help-and-advice-4.html" %}
         </div>
         
     </div>

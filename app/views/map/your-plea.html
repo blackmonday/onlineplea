@@ -45,7 +45,7 @@
 
                 <h2 class="heading-large">Enter your plea</h2>
 
-                <div class="form-group">
+                <div class="form-group bottom_15">
                     <fieldset data-required data-error="You must select a plea for this charge">
                         <legend class="heading-small">How do you plead?</legend>
                         <div class="multiple-choice"  data-target="pleading-guilty">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="multiple-choice"  data-target="pleading-not-guilty">
+                        <div class="multiple-choice" data-target="pleading-not-guilty">
                             <input id="plea-2" type="radio" name="how-do-you-plead-group" value="Not guilty" {{ checked('how-do-you-plead-group','Not guilty') }}>
                             <label for="plea-2">Not guilty</label>
                         </div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="form-group">
-                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p><input class="button" type="submit" value="Continue"></p>
                     <p>{% include "includes/back_link.html" %}</p>
                 </div>
                 
