@@ -20,33 +20,93 @@
                 <li>an official representative of the company charged with the offece</li>
             </ul>
             <h2 class="heading-medium">Before you start</h2>
-            <p>To use this service you need:</p>
             
-            
-            <details open>
-                <summary><span class="summary bold">For all pleas</span></summary>
-                <div class="panel panel-border-narrow">
-                    <ul class="list list-bullet">
-                        <li>the Single Justice Procedure notice sent to you</li>
-                        <li>your National Insurance number</li>
-                        <li>details of your income, benefits and outgoings</li>
-                        <li>your employer's details</li>
-                        <li>your email address</li>
-                    </ul>
-                </div>
-            </details>
-            
-            <details open>
-                <summary><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
-                <div class="panel panel-border-narrow">
-                    <ul class="list list-bullet">
-                        <li>your witness' name, address, age and date of birth</li>
-                        <li>any dates you can't attend court</li>
-                    </ul>
-                </div>
-            </details>
+            <div class="form-group">
+                <fieldset class="inline">
 
-            <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+                    <legend class="bottom_15">Are you representing yourself or a company?</legend>
+
+                    <div class="multiple-choice" data-target="citizen">
+                        <input id="defendent-type-1" type="radio" name="defendent-type-group" value="Myself">
+                        <label for="defendent-type-1">Myself</label>
+                    </div>
+                    <div class="multiple-choice" data-target="company">
+                        <input id="defendent-type-2" type="radio" name="defendent-type-group" value="A company">
+                        <label for="defendent-type-2">A company</label>
+                    </div>
+                    
+                </fieldset>
+                
+                <div class="js-hidden top_30" id="citizen">
+                    
+                    <p class="bottom_15">To use this serice you need:</p>
+                    
+                    <details open>
+                        <summary><span class="summary bold">For all pleas</span></summary>
+                        <div class="panel panel-border-narrow" style="margin-bottom:30px">
+                            <ul class="list list-bullet">
+                                <li>the Single Justice Procedure notice sent to you</li>
+                                <li>your National Insurance number</li>
+                                <li>details of your income, benefits and outgoings</li>
+                                <li>your employer's details</li>
+                                <li>your email address</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details open>
+                        <summary><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
+                        <div class="panel panel-border-narrow">
+                            <ul class="list list-bullet">
+                                <li>your witness' name, address, age and date of birth</li>
+                                <li>any dates you can't attend court</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+ 
+                </div>
+
+                <div class="js-hidden top_30" id="company">
+
+                    <p class="bottom_15">To use this serice you need:</p>
+                    
+                    <details open>
+                        <summary><span class="summary bold">For all pleas</span></summary>
+                        <div class="panel panel-border-narrow" style="margin-bottom:30px">
+                            <ul class="list list-bullet">
+                                <li>the Single Justice Procedure notice sent to you</li>
+                                <li>the company you represents financial information</li>
+                                <li>an email address</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details open>
+                        <summary><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
+                        <div class="panel panel-border-narrow">
+                            <ul class="list list-bullet">
+                                <li>your witness' name, address, age and date of birth</li>
+                                <li>any dates you can't attend court</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+
+                </div>
+                
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+
             
             <div class="panel panel-border-narrow top_60">This service is also available in Welsh (<a href="#">Cymraeg)</a></div>
 
