@@ -32,6 +32,8 @@ router.post('/map/find-your-case', function (req, res) {
     req.session.data['defendant-address-line-1'] = "38A Baker Street"
     req.session.data['defendant-address-city'] = "London"
     req.session.data['defendant-address-postcode'] = "W1 7SX"
+    
+    req.session.data['returnToCYA'] = "No"
         
     res.redirect('/map/your-details')
     
@@ -40,7 +42,7 @@ router.post('/map/find-your-case', function (req, res) {
 // ***********
 // You details
 router.post('/map/your-details', function (req, res) {
-
+    
     var new_first_name = req.session.data['new-defendant-first-name']
     var new_last_name = req.session.data['new-defendant-last-name']
     var new_address_line_1 = req.session.data['new-defendant-address-line-1']
@@ -70,8 +72,12 @@ router.post('/map/your-details', function (req, res) {
     if (new_address_postcode != "") {
         req.session.data['defendant-address-postcode'] = new_address_postcode
     }
-    
-    res.redirect('/map/your-plea')
+        
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-plea')
+    }
     
 })
 
@@ -100,7 +106,14 @@ router.post('/map/guilty-plea', function (req, res) {
   if (plea == "Yes"){
     res.redirect('/map/your-court-hearing')
   } else if (plea == "No"){
-    res.redirect('/map/your-finances')
+      
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-finances')
+    }
+
+    //res.redirect('/map/your-finances')
   } else {
       res.redirect('/map/guilty-plea')
   }
@@ -114,9 +127,23 @@ router.post('/map/your-court-hearing', function (req, res) {
   var plea = req.session.data['interpreter-group']
 
   if (plea == "Yes"){
-    res.redirect('/map/your-finances')
+      
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-finances')
+    }
+
+    //res.redirect('/map/your-finances')
   } else if (plea == "No"){
-    res.redirect('/map/your-finances')
+      
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-finances')
+    }
+
+    //res.redirect('/map/your-finances')
   } else {
       res.redirect('/map/your-court-hearing')
   }
@@ -127,7 +154,13 @@ router.post('/map/your-court-hearing', function (req, res) {
 // Not guilty plea
 router.post('/map/not-guilty-plea', function (req, res) {
 
-    res.redirect('/map/your-finances')
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-finances')
+    }
+
+    //res.redirect('/map/your-finances')
     
 })
 
@@ -151,9 +184,15 @@ router.post('/map/your-income', function (req, res) {
   } else if (claiming_benefits == "Yes"){
     res.redirect('/map/your-benefits')
   } else {
-      res.redirect('/map/your-monthly-outgoings')
-  }
-    
+      
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-monthly-outgoings')
+    }
+
+      //res.redirect('/map/your-monthly-outgoings')
+  }  
     
 })
 
@@ -166,7 +205,14 @@ router.post('/map/deductions-from-earnings', function (req, res) {
   if (deductions == "Yes"){
     res.redirect('/map/your-employment')
   } else if (deductions == "No"){
-    res.redirect('/map/your-monthly-outgoings')
+    
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-monthly-outgoings')
+    }
+
+      //res.redirect('/map/your-monthly-outgoings')
   } else {
       res.redirect('/map/deductions-from-earnings')
   }
@@ -177,7 +223,13 @@ router.post('/map/deductions-from-earnings', function (req, res) {
 // Your employment
 router.post('/map/your-employment', function (req, res) {
 
-    res.redirect('/map/your-monthly-outgoings')
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-monthly-outgoings')
+    }
+
+    //res.redirect('/map/your-monthly-outgoings')
     
 })
 
@@ -191,6 +243,7 @@ router.post('/map/your-monthly-outgoings', function (req, res) {
     if (outgoings == "Yes"){
         res.redirect('/map/your-monthly-outgoings-detail')
     } else if (outgoings == "No"){
+        req.session.data['returnToCYA'] = "Yes"
         res.redirect('/map/check-your-answers')
     } else {
         res.redirect('/map/your-monthly-outgoings')
@@ -215,6 +268,8 @@ router.post('/map/your-monthly-outgoings-detail', function (req, res) {
     if (req.session.data['other-expenses-details'] != "") {
         req.session.data['other-expenses-details'] = 'including: ' + req.session.data['other-expenses-details']
     }
+    
+    req.session.data['returnToCYA'] = "Yes"
 
     res.redirect('/map/check-your-answers')    
     
@@ -225,7 +280,13 @@ router.post('/map/your-monthly-outgoings-detail', function (req, res) {
 // Your benefits
 router.post('/map/your-benefits', function (req, res) {
 
-  res.redirect('/map/your-monthly-outgoings')    
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-monthly-outgoings')
+    }
+
+    //res.redirect('/map/your-monthly-outgoings')    
     
 })
 
@@ -271,4 +332,3 @@ router.post('/map/feedback-confirmation', function (req, res) {
   res.redirect('/map/start-page')    
     
 })
-
