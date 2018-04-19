@@ -34,8 +34,8 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
-        req.session.data['charge-title'] = "TV Licensing charge title"
-        req.session.data['charge-detail'] = "TV Licensing charge detail"
+        req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
+        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
     /* COMPANY */
     } else if (URN == "TVL2") {
         req.session.data['company-name'] = "Acme Ltd"
@@ -43,8 +43,8 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['company-address-city'] = "London"
         req.session.data['company-address-postcode'] = "N1 9XY"
 
-        req.session.data['charge-title'] = "TV Licensing charge title"
-        req.session.data['charge-detail'] = "TV Licensing charge detail"
+        req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
+        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
     /* CITIZEN */
     } /*else {
         req.session.data['defendant-first-name'] = "Sam"
