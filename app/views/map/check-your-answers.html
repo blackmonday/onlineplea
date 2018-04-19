@@ -13,7 +13,13 @@
 </style>
 
 <script>
-        window.onload = function() {
+    window.onload = function() {
+            
+        if (document.getElementById('URN').innerText == "TVL2") {
+            document.getElementById('citizenCYA').style.display = "none";
+        } else {
+            document.getElementById('companyCYA').style.display = "none";
+        }
         
         var outgoingsGroup = document.getElementById("outgoingsGroup").innerText;
         if (outgoingsGroup == "No") {
@@ -141,384 +147,633 @@
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
+    
+    <span id="URN" style="display: none">{{ data['URN']}}</span>
 
     <div class="grid-row">
         <div class="column-full">
             <h1 class="heading-xlarge bottom_30">Check your answers</h1>
             
-            <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
-            <!--   * `cya-questions-short` for short questions -->
-            <!--   * `cya-questions-long` for long questions -->
-            <!--   * none for single group of q&a -->
-            <dl class="govuk-check-your-answers cya-questions-short top_0">
-                <div>
-                    <dt class="cya-question" style="border: none;">
-                        <h2 class="heading-medium">Your details</h2>
-                    </dt>
-                    <dd class="cya-answer" style="border: none;">
-                        &nbsp;
-                    </dd>
-                    <dd class="cya-change" style="border: none;">
-                        <a href="/map/your-details">Change<span class="visually-hidden"> your details</span></a>
-                    </dd>
-                </div>
+            <!-- CITIZEN -->
+            <div id="citizenCYA">
+                <!-- CIZIZEN DETAILS -->
+                <dl class="govuk-check-your-answers cya-questions-short top_0">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Your details</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/your-details">Change<span class="visually-hidden"> your details</span></a>
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Name
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Address
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['defendant-address-line-1'] }}<br>
+                            <span id="defendantAddressLine2">{{ data['defendant-address-line-2'] }}<br></span>
+                            {{ data['defendant-address-city'] }}<br>
+                            <span id="defendantAddressCounty">{{ data['defendant-address-county'] }}<br></span>
+                            {{ data['defendant-address-postcode'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Home telephone
+                        </dt>
+                        <dd class="cya-answer" id="homeTelephone">
+                            {{ data['home-telephone'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Mobile number
+                        </dt>
+                        <dd class="cya-answer" id="mobileNumber">
+                            {{ data['mobile-number'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                        Email address
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['email-address'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Date of birth
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['dob-day'] }} &nbsp; {{ data['dob-month'] }} &nbsp; {{ data['dob-year'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            National Insurance number
+                        </dt>
+                        <dd class="cya-answer" id="nin">
+                            {{ data['nin'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+                </dl>
+
                 
-                <div>
-                    <dt class="cya-question">
-                        Name
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                
+                <!-- CIZIZEN PLEA -->
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Your plea</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/your-plea">Change<span class="visually-hidden"> your plea</span></a>
+                        </dd>
+                    </div>
+                </dl>
 
-                <div>
-                    <dt class="cya-question">
-                        Address
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['defendant-address-line-1'] }}<br>
-                        <span id="defendantAddressLine2">{{ data['defendant-address-line-2'] }}<br></span>
-                        {{ data['defendant-address-city'] }}<br>
-                        <span id="defendantAddressCounty">{{ data['defendant-address-county'] }}<br></span>
-                        {{ data['defendant-address-postcode'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question">
+                            Plea
+                        </dt>
+                        <dd class="cya-answer" id="HowDoYouPlead">
+                            {{ data['how-do-you-plead-group'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                        Home telephone
-                    </dt>
-                    <dd class="cya-answer" id="homeTelephone">
-                        {{ data['home-telephone'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                    <div>
+                        <dt class="cya-question">
+                            Coming to court
+                        </dt>
+                        <dd class="cya-answer" id="comeToCourt">
+                            {{ data['do-you-want-to-come-to-court-group'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                        Mobile number
-                    </dt>
-                    <dd class="cya-answer" id="mobileNumber">
-                        {{ data['mobile-number'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                    <div>
+                        <dt class="cya-question">
+                            information for magistrates
+                        </dt>
+                        <dd class="cya-answer" id="mitigation">
+                            {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                    Email address
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['email-address'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                    <div id="interpreterRequiredGroup">
+                        <dt class="cya-question">
+                            Do you need an interpreter in court?
+                        </dt>
+                        <dd class="cya-answer" id="interpreterRequired">
+                            {{ data['interpreter-group'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                        Date of birth
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['dob-day'] }} &nbsp; {{ data['dob-month'] }} &nbsp; {{ data['dob-year'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
+                    <div id="interpreterLanguageGroup">
+                        <dt class="cya-question">
+                            Language
+                        </dt>
+                        <dd class="cya-answer" id="interpreterLanguage">
+                            {{ data['interpeter-language'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                        National Insurance number
-                    </dt>
-                    <dd class="cya-answer" id="nin">
-                        {{ data['nin'] }}
-                    </dd>
-                    <dd class="cya-change"></dd>
-                </div>
-            </dl>
+                    <div id="prosecutionWitnessGroup">
+                        <dt class="cya-question">
+                            Do you want a witness on this statement to attend?
+                        </dt>
+                        <dd class="cya-answer" id="prosecutionWitness">
+                            {{ data['witness-1-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="prosecutionWitnessDetailsGroup">
+                        <dt class="cya-question">
+                            Their name and why you want them to attend
+                        </dt>
+                        <dd class="cya-answer" id="prosecutionWitnessDetails">
+                            {{ data['witness-1-details'] }}
+                        </dd>
+                    </div>
+
+                    <div id="yourWitnessGroup">
+                        <dt class="cya-question">
+                            Do you want to bring your own witness?
+                        </dt>
+                        <dd class="cya-answer" id="yourWitness">
+                            {{ data['witness-2-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="yourWitnessDetailsGroup">
+                        <dt class="cya-question">
+                            The name and address of your witness and their age and date of birth if known
+                        </dt>
+                        <dd class="cya-answer" id="yourWitnessDetails">
+                            {{ data['witness-2-details'] }}
+                        </dd>
+                    </div>
+
+                    <div id="datesToAvoidGroup">
+                        <dt class="cya-question">
+                            Are there any dates you or your witness can not attend court?
+                        </dt>
+                        <dd class="cya-answer" id="datesToAvoid">
+                            {{ data['dates-to-avoid-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="datesToAvoidDetailsGroup">
+                        <dt class="cya-question">
+                            Dates you or your witness can not attend court
+                        </dt>
+                        <dd class="cya-answer" id="datesToAvoidDetails">
+                            {{ data['dates-to-avoid-details'] }}
+                        </dd>
+                    </div>
+                </dl>
+
+
+                
+                <!-- CIZIZEN FINANCES -->
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Your finances</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/your-finances">Change<span class="visually-hidden"> your finances</span></a>
+                        </dd>
+                    </div>
+                </dl>
+
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question">
+                            Income (after tax)
+                        </dt>
+                        <dd class="cya-answer">
+                            £{{ data['average-income'] }} &nbsp; {{ data['income-freqency-group'] }}
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Employment status
+                        </dt>
+                        <dd class="cya-answer">
+                            <span id="employmentStatus">{{ data['employment-status-group'] }}</span> &nbsp; {{ data['other-income-details'] }}
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Are you claiming any benefits?
+                        </dt>
+                        <dd class="cya-answer" id="claimingBenefits">
+                            {{ data['claiming-benefits-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="deductFromBenefits">
+                        <dt class="cya-question">
+                            If you need to pay a penalty, would you like us to deduct it from your benefits?
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['deductions-from-benefits-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="benefitsYourAreClaiming">
+                        <dt class="cya-question">
+                            Benefits you are claiming
+                        </dt>
+                        <dd class="cya-answer" id="yourBenefits">
+                            {{ data['claiming-benefits-details'] }}
+                        </dd>
+                    </div>
+
+                    <div id="deductFromEarningsGroup">
+                        <dt class="cya-question">
+                            Deduct from earnings?
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['deductions-from-earnings-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="employerReference">
+                        <dt class="cya-question">
+                            Employee reference
+                        </dt>
+                        <dd class="cya-answer" id="employeeID">
+                            {{ data['employee-reference'] }}
+                        </dd>
+                    </div>
+
+                    <div id="employerName">
+                        <dt class="cya-question">
+                            Employer's name
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['employer-name'] }}
+                        </dd>
+                    </div>
+
+                    <div id="employerAddress">
+                        <dt class="cya-question">
+                            Employer's address
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['employer-address-line-1'] }}<br>
+                            <span id="employerAddressLine2">{{ data['employer-address-line-2'] }}<br></span>
+                            {{ data['employer-city'] }}<br>
+                            <span id="employerCounty">{{ data['employer-county'] }}<br></span>
+                            {{ data['employer-postcode'] }}<br>
+                        </dd>
+                    </div>
+
+                    <div id="employerTelephone">
+                        <dt class="cya-question">
+                            Employer's telephone
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['employer-telephone'] }}
+                        </dd>
+                    </div>
+
+                </dl>
+
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Monthly outgoings</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/your-monthly-outgoings">Change<span class="visually-hidden"> monthly outgoings</span></a>
+                        </dd>
+                    </div>
+                </dl>
 
  
-            
-            
-            
-            
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question" style="border: none;">
-                        <h2 class="heading-medium">Your plea</h2>
-                    </dt>
-                    <dd class="cya-answer" style="border: none;">
-                        &nbsp;
-                    </dd>
-                    <dd class="cya-change" style="border: none;">
-                        <a href="/map/your-plea">Change<span class="visually-hidden"> your plea</span></a>
-                    </dd>
-                </div>
-            </dl>
+
                 
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question">
-                        Plea
-                    </dt>
-                    <dd class="cya-answer" id="HowDoYouPlead">
-                        {{ data['how-do-you-plead-group'] }}
-                    </dd>
-                </div>
+                <!-- CIZIZEN OUTGOINGS -->
+               <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question">
+                            Would you like to give details of your personal bills?
+                        </dt>
+                        <dd class="cya-answer" id="outgoingsGroup">
+                            {{ data['outgoings-group'] }}
+                        </dd>
+                    </div>
 
-                <div>
-                    <dt class="cya-question">
-                        Coming to court
-                    </dt>
-                    <dd class="cya-answer" id="comeToCourt">
-                        {{ data['do-you-want-to-come-to-court-group'] }}
-                    </dd>
-                </div>
+                    <div class="outgoings-detail" id="outgoingsDetail">
+                        <dt class="cya-question">
+                            Monthly amount
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['outgoings-total'] }} {{ data['other-expenses-details'] }}
+                        </dd>
+                    </div>
+                </dl>
 
-                <div>
-                    <dt class="cya-question">
-                        information for magistrates
-                    </dt>
-                    <dd class="cya-answer" id="mitigation">
-                        {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
-                    </dd>
-                </div>
+                <!--
+                <form class="form" action="" method="post">
+                    <div class="form-group">
+                        <p class="top_30"><input class="button" type="submit" value="Confirm and continue"></p>
+                        <p>{% include "includes/back_link.html" %}</p>
+                    </div>
+                </form>
+                -->
 
-                <div id="interpreterRequiredGroup">
-                    <dt class="cya-question">
-                        Do you need an interpreter in court?
-                    </dt>
-                    <dd class="cya-answer" id="interpreterRequired">
-                        {{ data['interpreter-group'] }}
-                    </dd>
-                </div>
+            </div>
+            
+            <!-- COMPANY -->
+            <div id="companyCYA">
+                <!-- COMPANY FINANCES -->
+                <dl class="govuk-check-your-answers cya-questions-short top_0">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Company details</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/company-details">Change<span class="visually-hidden"> your details</span></a>
+                        </dd>
+                    </div>
+                    
+                    <div>
+                        <dt class="cya-question">
+                            Company name
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-name'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+                    
+                    <div>
+                        <dt class="cya-question">
+                            Company address
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-address-line-1'] }}<br>
+                            <span id="companyAddressLine2">{{ data['company-address-line-2'] }}<br></span>
+                            {{ data['company-address-city'] }}<br>
+                            <span id="companyAddressCounty">{{ data['company-address-county'] }}<br></span>
+                            {{ data['company-address-postcode'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
 
-                <div id="interpreterLanguageGroup">
-                    <dt class="cya-question">
-                        Language
-                    </dt>
-                    <dd class="cya-answer" id="interpreterLanguage">
-                        {{ data['interpeter-language'] }}
-                    </dd>
-                </div>
+                    <div>
+                        <dt class="cya-question">
+                            Company representative name
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-representative-name'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
 
-                <div id="prosecutionWitnessGroup">
-                    <dt class="cya-question">
-                        Do you want a witness on this statement to attend?
-                    </dt>
-                    <dd class="cya-answer" id="prosecutionWitness">
-                        {{ data['witness-1-group'] }}
-                    </dd>
-                </div>
+                    <div>
+                        <dt class="cya-question">
+                            Your position within the company
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-representative-position'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Company telephone
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-telephone'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Company mobile
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-mobile'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                    <div>
+                        <dt class="cya-question">
+                            Email address
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['company-representative-email-address'] }}
+                        </dd>
+                        <dd class="cya-change"></dd>
+                    </div>
+
+                </dl>
                 
-                <div id="prosecutionWitnessDetailsGroup">
-                    <dt class="cya-question">
-                        Their name and why you want them to attend
-                    </dt>
-                    <dd class="cya-answer" id="prosecutionWitnessDetails">
-                        {{ data['witness-1-details'] }}
-                    </dd>
-                </div>
-
-                <div id="yourWitnessGroup">
-                    <dt class="cya-question">
-                        Do you want to bring your own witness?
-                    </dt>
-                    <dd class="cya-answer" id="yourWitness">
-                        {{ data['witness-2-group'] }}
-                    </dd>
-                </div>
                 
-                <div id="yourWitnessDetailsGroup">
-                    <dt class="cya-question">
-                        The name and address of your witness and their age and date of birth if known
-                    </dt>
-                    <dd class="cya-answer" id="yourWitnessDetails">
-                        {{ data['witness-2-details'] }}
-                    </dd>
-                </div>
+                <!-- COMPANY PLEA -->
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Company plea</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/your-plea">Change<span class="visually-hidden"> your plea</span></a>
+                        </dd>
+                    </div>
+                </dl>
 
-                <div id="datesToAvoidGroup">
-                    <dt class="cya-question">
-                        Are there any dates you or your witness can not attend court?
-                    </dt>
-                    <dd class="cya-answer" id="datesToAvoid">
-                        {{ data['dates-to-avoid-group'] }}
-                    </dd>
-                </div>
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question">
+                            Plea
+                        </dt>
+                        <dd class="cya-answer" id="HowDoYouPlead">
+                            {{ data['how-do-you-plead-group'] }}
+                        </dd>
+                    </div>
 
-                <div id="datesToAvoidDetailsGroup">
-                    <dt class="cya-question">
-                        Dates you or your witness can not attend court
-                    </dt>
-                    <dd class="cya-answer" id="datesToAvoidDetails">
-                        {{ data['dates-to-avoid-details'] }}
-                    </dd>
-                </div>
-            </dl>
+                    <div>
+                        <dt class="cya-question">
+                            Coming to court
+                        </dt>
+                        <dd class="cya-answer" id="comeToCourt">
+                            {{ data['do-you-want-to-come-to-court-group'] }}
+                        </dd>
+                    </div>
 
- 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question" style="border: none;">
-                        <h2 class="heading-medium">Your finances</h2>
-                    </dt>
-                    <dd class="cya-answer" style="border: none;">
-                        &nbsp;
-                    </dd>
-                    <dd class="cya-change" style="border: none;">
-                        <a href="/map/your-finances">Change<span class="visually-hidden"> your finances</span></a>
-                    </dd>
-                </div>
-            </dl>
+                    <div>
+                        <dt class="cya-question">
+                            information for magistrates
+                        </dt>
+                        <dd class="cya-answer" id="mitigation">
+                            {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
+                        </dd>
+                    </div>
+
+                    <div id="interpreterRequiredGroup">
+                        <dt class="cya-question">
+                            Do you need an interpreter in court?
+                        </dt>
+                        <dd class="cya-answer" id="interpreterRequired">
+                            {{ data['interpreter-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="interpreterLanguageGroup">
+                        <dt class="cya-question">
+                            Language
+                        </dt>
+                        <dd class="cya-answer" id="interpreterLanguage">
+                            {{ data['interpeter-language'] }}
+                        </dd>
+                    </div>
+
+                    <div id="prosecutionWitnessGroup">
+                        <dt class="cya-question">
+                            Do you want a witness on this statement to attend?
+                        </dt>
+                        <dd class="cya-answer" id="prosecutionWitness">
+                            {{ data['witness-1-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="prosecutionWitnessDetailsGroup">
+                        <dt class="cya-question">
+                            Their name and why you want them to attend
+                        </dt>
+                        <dd class="cya-answer" id="prosecutionWitnessDetails">
+                            {{ data['witness-1-details'] }}
+                        </dd>
+                    </div>
+
+                    <div id="yourWitnessGroup">
+                        <dt class="cya-question">
+                            Do you want to bring your own witness?
+                        </dt>
+                        <dd class="cya-answer" id="yourWitness">
+                            {{ data['witness-2-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="yourWitnessDetailsGroup">
+                        <dt class="cya-question">
+                            The name and address of your witness and their age and date of birth if known
+                        </dt>
+                        <dd class="cya-answer" id="yourWitnessDetails">
+                            {{ data['witness-2-details'] }}
+                        </dd>
+                    </div>
+
+                    <div id="datesToAvoidGroup">
+                        <dt class="cya-question">
+                            Are there any dates you or your witness can not attend court?
+                        </dt>
+                        <dd class="cya-answer" id="datesToAvoid">
+                            {{ data['dates-to-avoid-group'] }}
+                        </dd>
+                    </div>
+
+                    <div id="datesToAvoidDetailsGroup">
+                        <dt class="cya-question">
+                            Dates you or your witness can not attend court
+                        </dt>
+                        <dd class="cya-answer" id="datesToAvoidDetails">
+                            {{ data['dates-to-avoid-details'] }}
+                        </dd>
+                    </div>
+                </dl>
+
                 
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question">
-                        Income (after tax)
-                    </dt>
-                    <dd class="cya-answer">
-                        £{{ data['average-income'] }} &nbsp; {{ data['income-freqency-group'] }}
-                    </dd>
-                </div>
-
-                <div>
-                    <dt class="cya-question">
-                        Employment status
-                    </dt>
-                    <dd class="cya-answer">
-                        <span id="employmentStatus">{{ data['employment-status-group'] }}</span> &nbsp; {{ data['other-income-details'] }}
-                    </dd>
-                </div>
-
-                <div>
-                    <dt class="cya-question">
-                        Are you claiming any benefits?
-                    </dt>
-                    <dd class="cya-answer" id="claimingBenefits">
-                        {{ data['claiming-benefits-group'] }}
-                    </dd>
-                </div>
-
-                <div id="deductFromBenefits">
-                    <dt class="cya-question">
-                        If you need to pay a penalty, would you like us to deduct it from your benefits?
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['deductions-from-benefits-group'] }}
-                    </dd>
-                </div>
-
-                <div id="benefitsYourAreClaiming">
-                    <dt class="cya-question">
-                        Benefits you are claiming
-                    </dt>
-                    <dd class="cya-answer" id="yourBenefits">
-                        {{ data['claiming-benefits-details'] }}
-                    </dd>
-                </div>
                 
-                <div id="deductFromEarningsGroup">
-                    <dt class="cya-question">
-                        Deduct from earnings?
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['deductions-from-earnings-group'] }}
-                    </dd>
-                </div>
+                
+                <!-- COMPANY FINANCE -->
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question" style="border: none;">
+                            <h2 class="heading-medium">Company finance</h2>
+                        </dt>
+                        <dd class="cya-answer" style="border: none;">
+                            &nbsp;
+                        </dd>
+                        <dd class="cya-change" style="border: none;">
+                            <a href="/map/company-finance">Change<span class="visually-hidden"> your plea</span></a>
+                        </dd>
+                    </div>
+                </dl>
 
-                <div id="employerReference">
-                    <dt class="cya-question">
-                        Employee reference
-                    </dt>
-                    <dd class="cya-answer" id="employeeID">
-                        {{ data['employee-reference'] }}
-                    </dd>
-                </div>
+                <dl class="govuk-check-your-answers cya-questions-short">
+                    <div>
+                        <dt class="cya-question">
+                            Annual turnover
+                        </dt>
+                        <dd class="cya-answer">
+                            £{{ data['company-income'] }}
+                        </dd>
+                    </div>
 
-                <div id="employerName">
-                    <dt class="cya-question">
-                        Employer's name
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['employer-name'] }}
-                    </dd>
-                </div>
+                    <div>
+                        <dt class="cya-question">
+                            Other relevant financial information
+                        </dt>
+                        <dd class="cya-answer">
+                            {{ data['other-income-details'] }}
+                        </dd>
+                    </div>
 
-                <div id="employerAddress">
-                    <dt class="cya-question">
-                        Employer's address
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['employer-address-line-1'] }}<br>
-                        <span id="employerAddressLine2">{{ data['employer-address-line-2'] }}<br></span>
-                        {{ data['employer-city'] }}<br>
-                        <span id="employerCounty">{{ data['employer-county'] }}<br></span>
-                        {{ data['employer-postcode'] }}<br>
-                    </dd>
-                </div>
-
-                <div id="employerTelephone">
-                    <dt class="cya-question">
-                        Employer's telephone
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['employer-telephone'] }}
-                    </dd>
-                </div>
-                                    
-            </dl>
- 
-            
- 
-            
-            
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question" style="border: none;">
-                        <h2 class="heading-medium">Monthly outgoings</h2>
-                    </dt>
-                    <dd class="cya-answer" style="border: none;">
-                        &nbsp;
-                    </dd>
-                    <dd class="cya-change" style="border: none;">
-                        <a href="/map/your-monthly-outgoings">Change<span class="visually-hidden"> monthly outgoings</span></a>
-                    </dd>
-                </div>
-            </dl>
-            
-            <dl class="govuk-check-your-answers cya-questions-short">
-                <div>
-                    <dt class="cya-question">
-                        Would you like to give details of your personal bills?
-                    </dt>
-                    <dd class="cya-answer" id="outgoingsGroup">
-                        {{ data['outgoings-group'] }}
-                    </dd>
-                </div>
-
-                <div class="outgoings-detail" id="outgoingsDetail">
-                    <dt class="cya-question">
-                        Monthly amount
-                    </dt>
-                    <dd class="cya-answer">
-                        {{ data['outgoings-total'] }} {{ data['other-expenses-details'] }}
-                    </dd>
-                </div>
-            </dl>
-
-            
-            
+                </dl>
+            </div>
             
             <form class="form" action="" method="post">
                 <div class="form-group">
@@ -526,7 +781,7 @@
                     <p>{% include "includes/back_link.html" %}</p>
                 </div>
             </form>
-
+            
         </div>
         
         

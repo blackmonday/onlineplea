@@ -16,28 +16,62 @@ router.post('/map/find-your-case', function (req, res) {
     
     var URN = req.session.data['URN']
 
+    /* CITIZEN */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
+        req.session.data['defendant-first-name'] = "Sam"
+        req.session.data['defendant-last-name'] = "Smith"
+        req.session.data['defendant-address-line-1'] = "38A Baker Street"
+        req.session.data['defendant-address-city'] = "London"
+        req.session.data['defendant-address-postcode'] = "W1 7SX"
+
         req.session.data['charge-title'] = "Passenger failing to produce a ticket"
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
+    /* CITIZEN */
     } else if (URN == "TVL") {
+        req.session.data['defendant-first-name'] = "Sam"
+        req.session.data['defendant-last-name'] = "Smith"
+        req.session.data['defendant-address-line-1'] = "38A Baker Street"
+        req.session.data['defendant-address-city'] = "London"
+        req.session.data['defendant-address-postcode'] = "W1 7SX"
+
         req.session.data['charge-title'] = "TV Licensing charge title"
         req.session.data['charge-detail'] = "TV Licensing charge detail"
-    } else {
+    /* COMPANY */
+    } else if (URN == "TVL2") {
+        req.session.data['company-name'] = "Acme Ltd"
+        req.session.data['company-address-line-1'] = "123 High Street"
+        req.session.data['company-address-city'] = "London"
+        req.session.data['company-address-postcode'] = "N1 9XY"
+
+        req.session.data['charge-title'] = "TV Licensing charge title"
+        req.session.data['charge-detail'] = "TV Licensing charge detail"
+    /* CITIZEN */
+    } /*else {
+        req.session.data['defendant-first-name'] = "Sam"
+        req.session.data['defendant-last-name'] = "Smith"
+        req.session.data['defendant-address-line-1'] = "38A Baker Street"
+        req.session.data['defendant-address-city'] = "London"
+        req.session.data['defendant-address-postcode'] = "W1 7SX"
+
         req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
-    }
+    }*/
     
-    req.session.data['defendant-first-name'] = "Sam"
-    req.session.data['defendant-last-name'] = "Smith"
-    req.session.data['defendant-address-line-1'] = "38A Baker Street"
-    req.session.data['defendant-address-city'] = "London"
-    req.session.data['defendant-address-postcode'] = "W1 7SX"
     
     req.session.data['returnToCYA'] = "No"
         
-    res.redirect('/map/your-details')
+    if (URN == "TVL2") {
+        res.redirect('/map/company-details')
+    } else {
+        res.redirect('/map/your-details')
+    }
     
 })
+
+
+
+
+
 
 // ***********
 // You details
@@ -81,6 +115,54 @@ router.post('/map/your-details', function (req, res) {
     
 })
 
+
+
+
+
+
+// ***************
+// Company details
+router.post('/map/company-details', function (req, res) {
+    
+    var new_company_name = req.session.data['new-company-name']
+    var new_company_address_line_1 = req.session.data['new-company-address-line-1']
+    var new_company_address_line_2 = req.session.data['new-company-address-line-2']
+    var new_company_address_city = req.session.data['new-company-address-city']
+    var new_company_address_county = req.session.data['new-company-address-county']
+    var new_company_address_postcode = req.session.data['new-company-address-postcode']
+    
+    if (new_company_name != "") {
+        req.session.data['company-name'] = new_company_name
+    }
+    if (new_company_address_line_1 != "") {
+        req.session.data['company-address-line-1'] = new_company_address_line_1
+    }
+    if (new_company_address_line_2 != "") {
+        req.session.data['company-address-line-2'] = new_company_address_line_2
+    }
+    if (new_company_address_city != "") {
+        req.session.data['company-address-city'] = new_company_address_city
+    }
+    if (new_company_address_county != "") {
+        req.session.data['company-address-county'] = new_company_address_county
+    }
+    if (new_company_address_postcode != "") {
+        req.session.data['company-address-postcode'] = new_company_address_postcode
+    }
+        
+    if (req.session.data['returnToCYA'] == "Yes") {
+        res.redirect('check-your-answers')
+    } else if (req.session.data['returnToCYA'] == "No") {
+        res.redirect('/map/your-plea')
+    }
+    
+})
+
+
+
+
+
+
 // ***********
 // Your plea
 router.post('/map/your-plea', function (req, res) {
@@ -110,7 +192,17 @@ router.post('/map/guilty-plea', function (req, res) {
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-finances')
+        
+        
+        
+        if (req.session.data['URN'] == "TVL2") {
+            res.redirect('/map/company-finances')
+        } else {
+            res.redirect('/map/your-finances')
+        }
+        
+        
+        
     }
 
     //res.redirect('/map/your-finances')
@@ -131,7 +223,20 @@ router.post('/map/your-court-hearing', function (req, res) {
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-finances')
+        
+        
+        
+        
+        if (req.session.data['URN'] == "TVL2") {
+            res.redirect('/map/company-finances')
+        } else {
+            res.redirect('/map/your-finances')
+        }
+
+        
+        
+        
+        //res.redirect('/map/your-finances')
     }
 
     //res.redirect('/map/your-finances')
@@ -140,7 +245,20 @@ router.post('/map/your-court-hearing', function (req, res) {
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-finances')
+        
+        
+        
+        
+        if (req.session.data['URN'] == "TVL2") {
+            res.redirect('/map/company-finances')
+        } else {
+            res.redirect('/map/your-finances')
+        }
+
+        
+        
+        
+        //res.redirect('/map/your-finances')
     }
 
     //res.redirect('/map/your-finances')
@@ -157,7 +275,20 @@ router.post('/map/not-guilty-plea', function (req, res) {
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-finances')
+        
+        
+        
+        
+        if (req.session.data['URN'] == "TVL2") {
+            res.redirect('/map/company-finances')
+        } else {
+            res.redirect('/map/your-finances')
+        }
+
+        
+        
+        
+        //res.redirect('/map/your-finances')
     }
 
     //res.redirect('/map/your-finances')
@@ -169,6 +300,22 @@ router.post('/map/not-guilty-plea', function (req, res) {
 router.post('/map/your-finances', function (req, res) {
 
     res.redirect('/map/your-income')
+    
+})
+
+// ****************
+// Company finances
+router.post('/map/company-finances', function (req, res) {
+
+    res.redirect('/map/company-income')
+    
+})
+
+// ****************
+// Company income
+router.post('/map/company-income', function (req, res) {
+
+    res.redirect('/map/check-your-answers')
     
 })
 

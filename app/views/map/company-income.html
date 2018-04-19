@@ -1,0 +1,64 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">Company income</h1>
+            
+            <form class="form" action="" method="post">
+                                    
+                <div class="form-group">
+                    <fieldset data-required data-error="You must provide your average income (after tax) - for example 1357.48">
+                        <legend class="form-label bold top_30" for="company-income">Annual turnover</legend>
+                            <p class="form-hint bottom_5">This could be an actual amount or forecasted amount. Please use box below to provide further explanations if needed.</p>
+                        <div class="input-icon">
+                            <i>£</i>
+                            <input class="form-control" id="company-income" type="number" min="0.01" step="0.01" name="company-income" value="{{ data['company-income'] }}">
+                        </div>
+                    </fieldset>
+                </div>
+                
+
+                
+                
+                
+                
+                
+
+                <div class="form-group">
+                    <fieldset>
+                        <p class="bold bottom_5">Any other relevant financial information (optional)</p>
+                        <textarea class="form-control form-control-3-4" name="other-income-details" id="other-income-details" rows="5">{{ data['other-income-details'] }}</textarea>
+                        <div class="font-xsmall form-control-3-4" id="character_count_5"></div>
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+            {% include "includes/map/help-and-advice-4.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

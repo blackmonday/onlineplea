@@ -6,20 +6,44 @@
 
 {% block content %}
 
+<script>
+    window.onload = function() {
+            
+        if (document.getElementById('URN').innerText == "TVL2") {
+            document.getElementById('citizenList').style.display = "none";
+        } else {
+            document.getElementById('companyList').style.display = "none";
+        }
+    }
+</script>
+
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
+
+    <span id="URN" style="display: none">{{ data['URN']}}</span>
 
     <div class="grid-row">
         <div class="column-two-thirds">
             <h1 class="heading-xlarge">Declaration</h1>
             
             <p class="bottom_15">I confirm that:</p>
-            <ul class="list list-bullet">
-                <li>I've read and understand the charges against me</li>
-                <li>I'm the person named int eh Single Justice Procedure notices</li>
-                <li>the facts I've given are correct as far as I know</li>
-            </ul>
+            
+            <div id="citizenList">
+                <ul class="list list-bullet">
+                    <li>I've read and understand the charges against me</li>
+                    <li>I'm the person named int eh Single Justice Procedure notices</li>
+                    <li>the facts I've given are correct as far as I know</li>
+                </ul>
+            </div>
+
+            <div id="companyList">
+                <ul class="list list-bullet">
+                    <li>I’ve read and understand the charge(s) against the company</li>
+                    <li>I represent the company named in the Single Justice Procedure notice</li>
+                    <li>the facts I’ve given are correct as far as I know</li>
+                </ul>
+            </div>
 
             
             <div class="notice">
