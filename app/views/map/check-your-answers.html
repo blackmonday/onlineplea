@@ -140,6 +140,111 @@
         if (employerCounty == "<br>") {
             document.getElementById("employerCounty").style.display = "none"; 
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        /* FOR COMPANIES */
+        
+        var companyTelephone = document.getElementById("companyTelephone").innerText;
+        
+        if (companyTelephone != "") {
+            document.getElementById("companyTelephoneOff").style.display = "none"; 
+        }
+
+        var companyMobile = document.getElementById("companyMobile").innerText;
+        if (companyMobile != "") {
+            document.getElementById("companyMobileOff").style.display = "none"; 
+        }
+        
+        var companyComeToCourt = document.getElementById("companyComeToCourt").innerText;
+        var companyHowDoYouPlead = document.getElementById("companyHowDoYouPlead").innerText;
+        if ((companyHowDoYouPlead == "Guilty") && (companyComeToCourt == "No")) {
+            document.getElementById("companyInterpreterRequiredGroup").style.display = "none"; 
+            document.getElementById("companyInterpreterLanguageGroup").style.display = "none"; 
+            document.getElementById("companyProsecutionWitnessGroup").style.display = "none"; 
+            document.getElementById("companyProsecutionWitnessDetailsGroup").style.display = "none"; 
+            document.getElementById("companyYourWitnessGroup").style.display = "none"; 
+            document.getElementById("companyYourWitnessDetailsGroup").style.display = "none"; 
+            document.getElementById("companyDatesToAvoidGroup").style.display = "none"; 
+            document.getElementById("companyDatesToAvoidDetailsGroup").style.display = "none"; 
+        }
+        
+        if ((companyHowDoYouPlead == "Guilty") && (companyComeToCourt == "Yes")) {
+            document.getElementById("companyProsecutionWitnessGroup").style.display = "none"; 
+            document.getElementById("companyProsecutionWitnessDetailsGroup").style.display = "none"; 
+            document.getElementById("companyYourWitnessGroup").style.display = "none"; 
+            document.getElementById("companyYourWitnessDetailsGroup").style.display = "none"; 
+            document.getElementById("companyDatesToAvoidGroup").style.display = "none"; 
+            document.getElementById("companyDatesToAvoidDetailsGroup").style.display = "none"; 
+        }
+        
+        var companyMitigation = document.getElementById("companyMitigation").innerText;
+        if (companyMitigation == "") {
+            document.getElementById("companyMitigation").innerText = "No mitigation given";
+        }
+
+        var companyOtherIncomeDetails = document.getElementById("companyOtherIncomeDetails").innerText;
+        if (companyOtherIncomeDetails == "") {
+            document.getElementById("companyOtherIncomeDetails").innerText = "No detaiils given";
+        }
+        
+        var companyInterpreterRequired = document.getElementById('companyInterpreterRequired').innerText;
+        if (companyInterpreterRequired == "No") {
+            document.getElementById("companyInterpreterLanguageGroup").style.display = "none";
+        }
+        
+        var companyProsecutionWitness = document.getElementById('companyProsecutionWitness').innerText;
+        if (companyProsecutionWitness == "No") {
+            document.getElementById("companyProsecutionWitnessDetailsGroup").style.display = "none";
+        }
+        
+        
+        var companyYourWitness = document.getElementById('companyYourWitness').innerText;
+        if (companyYourWitness == "No") {
+            document.getElementById("companyYourWitnessDetailsGroup").style.display = "none";
+        }
+
+        var companyDatesToAvoid = document.getElementById('companyDatesToAvoid').innerText;
+        if (companyDatesToAvoid == "No") {
+            document.getElementById("companyDatesToAvoidDetailsGroup").style.display = "none";
+        }
+        
+     
+        
+        
+        
+        var companyAddressLine1 = document.getElementById("companyAddressLine1").innerHTML;
+        var companyAddressLine2 = document.getElementById("companyAddressLine2").innerHTML;
+        var companyAddressCity = document.getElementById("companyAddressCity").innerHTML;
+        var companyAddressCounty = document.getElementById("companyAddressCounty").innerHTML;
+        var companyAddressPostcode = document.getElementById("companyAddressPostcode").innerHTML;
+        
+        if (companyAddressLine2 == "<br>") {
+            var companyAddressLine2 = document.getElementById("companyAddressLine2").style.display = "none";
+        }
+        if (companyAddressLine1 == "<br>") {
+            var companyAddressLine1 = document.getElementById("companyAddressLine1").style.display = "none";
+        }
+        if (companyAddressCity == "<br>") {
+            var companyAddressCity = document.getElementById("companyAddressCity").style.display = "none";
+        }
+        if (companyAddressCounty == "<br>") {
+            var companyAddressCounty = document.getElementById("companyAddressCounty").style.display = "none";
+        }
+        if (companyAddressPostcode == "<br>") {
+            var companyAddressPostcode = document.getElementById("companyAddressPostcode").style.display = "none";
+        }
+
+    
+    
+    
+    
+
     }
         
 </script>
@@ -156,6 +261,7 @@
             
             <!-- CITIZEN -->
             <div id="citizenCYA">
+                
                 <!-- CIZIZEN DETAILS -->
                 <dl class="govuk-check-your-answers cya-questions-short top_0">
                     <div>
@@ -244,9 +350,7 @@
                         <dd class="cya-change"></dd>
                     </div>
                 </dl>
-
-                
-                
+            
                 <!-- CIZIZEN PLEA -->
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
@@ -362,9 +466,7 @@
                         </dd>
                     </div>
                 </dl>
-
-
-                
+         
                 <!-- CIZIZEN FINANCES -->
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
@@ -490,10 +592,7 @@
                         </dd>
                     </div>
                 </dl>
-
- 
-
-                
+        
                 <!-- CIZIZEN OUTGOINGS -->
                <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
@@ -528,7 +627,8 @@
             
             <!-- COMPANY -->
             <div id="companyCYA">
-                <!-- COMPANY FINANCES -->
+                
+                <!-- COMPANY DETAILS -->
                 <dl class="govuk-check-your-answers cya-questions-short top_0">
                     <div>
                         <dt class="cya-question" style="border: none;">
@@ -538,7 +638,7 @@
                             &nbsp;
                         </dd>
                         <dd class="cya-change" style="border: none;">
-                            <a href="/map/company-details">Change<span class="visually-hidden"> your details</span></a>
+                            <a href="/map/company-details">Change<span class="visually-hidden"> company details</span></a>
                         </dd>
                     </div>
                     
@@ -557,11 +657,11 @@
                             Company address
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['company-address-line-1'] }}<br>
+                            <span id="companyAddressLine1">{{ data['company-address-line-1'] }}<br></span>
                             <span id="companyAddressLine2">{{ data['company-address-line-2'] }}<br></span>
-                            {{ data['company-address-city'] }}<br>
+                            <span id="companyAddressCity">{{ data['company-address-city'] }}<br></span>
                             <span id="companyAddressCounty">{{ data['company-address-county'] }}<br></span>
-                            {{ data['company-address-postcode'] }}
+                            <span id="companyAddressPostcode">{{ data['company-address-postcode'] }}</span>
                         </dd>
                         <dd class="cya-change"></dd>
                     </div>
@@ -591,7 +691,7 @@
                             Company telephone
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['company-telephone'] }}
+                            <span id="companyTelephone">{{ data['company-telephone'] }}</span><span id="companyTelephoneOff">No number specified</span>
                         </dd>
                         <dd class="cya-change"></dd>
                     </div>
@@ -601,7 +701,7 @@
                             Company mobile
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['company-mobile'] }}
+                            <span id="companyMobile">{{ data['company-mobile'] }}</span><span id="companyMobileOff">No number specified</span>
                         </dd>
                         <dd class="cya-change"></dd>
                     </div>
@@ -617,7 +717,6 @@
                     </div>
 
                 </dl>
-                
                 
                 <!-- COMPANY PLEA -->
                 <dl class="govuk-check-your-answers cya-questions-short">
@@ -639,7 +738,7 @@
                         <dt class="cya-question">
                             Plea
                         </dt>
-                        <dd class="cya-answer" id="HowDoYouPlead">
+                        <dd class="cya-answer" id="companyHowDoYouPlead">
                             {{ data['how-do-you-plead-group'] }}
                         </dd>
                     </div>
@@ -649,29 +748,29 @@
                             Coming to court
                         </dt>
                         <dd class="cya-answer" id="comeToCourt">
-                            {{ data['do-you-want-to-come-to-court-group'] }}
+                            <span id="companyComeToCourt">{{ data['do-you-want-to-come-to-court-group'] }}</span>
                         </dd>
                     </div>
 
                     <div>
                         <dt class="cya-question">
-                            information for magistrates
+                            Information for magistrates
                         </dt>
-                        <dd class="cya-answer" id="mitigation">
+                        <dd class="cya-answer" id="companyMitigation">
                             {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
                         </dd>
                     </div>
 
-                    <div id="interpreterRequiredGroup">
+                    <div id="companyInterpreterRequiredGroup">
                         <dt class="cya-question">
                             Do you need an interpreter in court?
                         </dt>
-                        <dd class="cya-answer" id="interpreterRequired">
+                        <dd class="cya-answer" id="companyInterpreterRequired">
                             {{ data['interpreter-group'] }}
                         </dd>
                     </div>
 
-                    <div id="interpreterLanguageGroup">
+                    <div id="companyInterpreterLanguageGroup">
                         <dt class="cya-question">
                             Language
                         </dt>
@@ -680,16 +779,16 @@
                         </dd>
                     </div>
 
-                    <div id="prosecutionWitnessGroup">
+                    <div id="companyProsecutionWitnessGroup">
                         <dt class="cya-question">
                             Do you want a witness on this statement to attend?
                         </dt>
-                        <dd class="cya-answer" id="prosecutionWitness">
+                        <dd class="cya-answer" id="companyProsecutionWitness">
                             {{ data['witness-1-group'] }}
                         </dd>
                     </div>
 
-                    <div id="prosecutionWitnessDetailsGroup">
+                    <div id="companyProsecutionWitnessDetailsGroup">
                         <dt class="cya-question">
                             Their name and why you want them to attend
                         </dt>
@@ -698,16 +797,16 @@
                         </dd>
                     </div>
 
-                    <div id="yourWitnessGroup">
+                    <div id="companyYourWitnessGroup">
                         <dt class="cya-question">
                             Do you want to bring your own witness?
                         </dt>
-                        <dd class="cya-answer" id="yourWitness">
+                        <dd class="cya-answer" id="companyYourWitness">
                             {{ data['witness-2-group'] }}
                         </dd>
                     </div>
 
-                    <div id="yourWitnessDetailsGroup">
+                    <div id="companyYourWitnessDetailsGroup">
                         <dt class="cya-question">
                             The name and address of your witness and their age and date of birth if known
                         </dt>
@@ -716,16 +815,16 @@
                         </dd>
                     </div>
 
-                    <div id="datesToAvoidGroup">
+                    <div id="companyDatesToAvoidGroup">
                         <dt class="cya-question">
                             Are there any dates you or your witness can not attend court?
                         </dt>
-                        <dd class="cya-answer" id="datesToAvoid">
+                        <dd class="cya-answer" id="companyDatesToAvoid">
                             {{ data['dates-to-avoid-group'] }}
                         </dd>
                     </div>
 
-                    <div id="datesToAvoidDetailsGroup">
+                    <div id="companyDatesToAvoidDetailsGroup">
                         <dt class="cya-question">
                             Dates you or your witness can not attend court
                         </dt>
@@ -734,9 +833,6 @@
                         </dd>
                     </div>
                 </dl>
-
-                
-                
                 
                 <!-- COMPANY FINANCE -->
                 <dl class="govuk-check-your-answers cya-questions-short">
@@ -748,7 +844,7 @@
                             &nbsp;
                         </dd>
                         <dd class="cya-change" style="border: none;">
-                            <a href="/map/company-finance">Change<span class="visually-hidden"> your plea</span></a>
+                            <a href="/map/company-finance">Change<span class="visually-hidden"> company finance</span></a>
                         </dd>
                     </div>
                 </dl>
@@ -767,12 +863,13 @@
                         <dt class="cya-question">
                             Other relevant financial information
                         </dt>
-                        <dd class="cya-answer">
+                        <dd class="cya-answer" id="companyOtherIncomeDetails">
                             {{ data['other-income-details'] }}
                         </dd>
                     </div>
 
                 </dl>
+                
             </div>
             
             <form class="form" action="" method="post">

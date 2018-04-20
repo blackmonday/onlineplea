@@ -9,6 +9,8 @@
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
+    
+    {{data['returnToCYA']}}
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -58,8 +60,8 @@
                                 <p class="bold bottom_10">Changes to company address</p>
 
                                 <label class="form-label" for="new-defendant-address-line">Company address</label>
-                                <input class="form-control form-control-3-4 bottom_5" id="new-company-address-line-1" type="text" name="new-defendant-address-line-1" value="{{ data['new-company-address-line-1'] }}">
-                                <input class="form-control form-control-3-4" id="new-defendant-company-line-2" type="text" name="new-defendant-address-line-2" value="{{ data['new-company-address-line-2'] }}">
+                                <input class="form-control form-control-3-4 bottom_5" id="new-company-address-line-1" type="text" name="new-company-address-line-1" value="{{ data['new-company-address-line-1'] }}">
+                                <input class="form-control form-control-3-4" id="new-company-company-line-2" type="text" name="new-company-address-line-2" value="{{ data['new-company-address-line-2'] }}">
 
                                 <label class="form-label top_15" for="new-defendant-company-city">Town or city</label>
                                 <input class="form-control" id="new-company-address-city" type="text" name="new-company-address-city" value="{{ data['new-company-address-city'] }}">

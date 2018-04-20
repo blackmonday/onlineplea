@@ -315,6 +315,7 @@ router.post('/map/company-finances', function (req, res) {
 // Company income
 router.post('/map/company-income', function (req, res) {
 
+    req.session.data['returnToCYA'] = "Yes"
     res.redirect('/map/check-your-answers')
     
 })
