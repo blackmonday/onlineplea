@@ -67,7 +67,7 @@
             document.getElementById("employerReference").style.display = "none";
             document.getElementById("employerName").style.display = "none";
             document.getElementById("employerAddress").style.display = "none";
-            document.getElementById("employerTelephone").style.display = "none";
+            document.getElementById("employerTelephoneGroup").style.display = "none";
         }
 
         var claimingBenefitsGroup = document.getElementById("claimingBenefits").innerText;
@@ -108,7 +108,7 @@
         
         var employeeID = document.getElementById("employeeID").innerText;
         if (employeeID == "") {
-            document.getElementById("employerReference").style.display = "none"; 
+            document.getElementById("employeeID").innerText = "Not specified" 
         }
         
         var interpreterLanguage = document.getElementById("interpreterLanguage").innerText;
@@ -141,8 +141,23 @@
             document.getElementById("employerCounty").style.display = "none"; 
         }
         
+        var deductFromEarnings = document.getElementById("deductFromEarnings").innerText;
+        if (deductFromEarnings == "No") {
+            document.getElementById("employerReference").style.display = "none"; 
+            document.getElementById("employerName").style.display = "none"; 
+            document.getElementById("employerAddress").style.display = "none"; 
+            document.getElementById("employerTelephoneGroup").style.display = "none"; 
+        }
+
+        var employerTelephone = document.getElementById("employerTelephone").innerText;
+        if (employerTelephone == "") {
+            document.getElementById("employerTelephone").innerText = "No detaiils given";
+        }
+
         
         
+                    
+
         
         
         
@@ -532,7 +547,7 @@
                         <dt class="cya-question">
                             Deduct from earnings?
                         </dt>
-                        <dd class="cya-answer">
+                        <dd class="cya-answer" id="deductFromEarnings">
                             {{ data['deductions-from-earnings-group'] }}
                         </dd>
                     </div>
@@ -568,11 +583,11 @@
                         </dd>
                     </div>
 
-                    <div id="employerTelephone">
+                    <div id="employerTelephoneGroup">
                         <dt class="cya-question">
                             Employer's telephone
                         </dt>
-                        <dd class="cya-answer">
+                        <dd class="cya-answer" id="employerTelephone">
                             {{ data['employer-telephone'] }}
                         </dd>
                     </div>
