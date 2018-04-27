@@ -26,6 +26,47 @@
                     </fieldset>
                 </div>
 
+                
+                
+                
+                
+                <div class="form-group bottom_30">
+                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
+                        <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
+                        <div class="multiple-choice">
+                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                            <label for="welsh-1">Yes</label>
+                        </div>
+                        
+                        <div class="multiple-choice">
+                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                            <label for="welsh-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                
+                
+                
+                
+                <div class="form-group bottom_0">
+                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
+                        <legend class="form-label heading-small bold">For other languages do you need an interpreter in court?</legend>
+                        <div class="multiple-choice"  data-target="interpreter-required">
+                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                            <label for="interpreter-1">Yes</label>
+                        </div>
+                        
+                        <div class="multiple-choice" data-target="details-not-correct">
+                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                            <label for="interpreter-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                
+                <!--
                 <div class="form-group bottom_0">
                     <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
                         <legend class="form-label heading-small bold">Do you need an interpreter in court?</legend>
@@ -40,6 +81,7 @@
                         </div>
                     </fieldset>
                 </div>
+                -->
 
 
                  <div class="form-group">
@@ -54,7 +96,7 @@
                      </fieldset>
                 </div>
 
-                <p class="heading-medium">Prosecution witnesses</p>
+                <p class="heading-medium bottom_0">Prosecution witnesses</p>
 
                 <div class="form-group bottom_0">
                     <fieldset class="inline" data-required data-error="Choose an answer">
