@@ -6,9 +6,30 @@
 
 {% block content %}
 
+<script>
+
+    window.onload = function() {
+        
+        // Check for a Welsh postcode
+        var casePostCode = document.getElementById('casePostCode').innerText;
+                        
+        if ((casePostCode == "LL48 6ER") || (casePostCode == "LL486ER")) {
+            document.getElementById('englishLanguage').style.display = "none";
+            document.getElementById('welshLanguage').style.display = "block";
+        } else {
+            document.getElementById('englishLanguage').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "none";
+        }
+        
+    }
+
+</script>
+
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
+    
+    <span id="casePostCode">{{data['case-post-code']}}</span>
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -25,49 +46,44 @@
                         <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
                     </fieldset>
                 </div>
+                
+                <div id="welshLanguage">
+                    <div class="form-group bottom_30">
+                        <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
+                            <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
+                            <div class="multiple-choice">
+                                <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                                <label for="welsh-1">Yes</label>
+                            </div>
 
+                            <div class="multiple-choice">
+                                <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                                <label for="welsh-2">No</label>
+                            </div>
+                        </fieldset>
+                    </div>
                 
-                
-                
-                
-                <div class="form-group bottom_30">
-                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
-                        <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
-                        <div class="multiple-choice">
-                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
-                            <label for="welsh-1">Yes</label>
-                        </div>
-                        
-                        <div class="multiple-choice">
-                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
-                            <label for="welsh-2">No</label>
-                        </div>
-                    </fieldset>
-                </div>
+                    <div class="form-group bottom_0">
+                        <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
+                            <legend class="form-label heading-small bold">For other languages do you need an interpreter in court?</legend>
+                            <div class="multiple-choice"  data-target="interpreter-required">
+                                <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                                <label for="interpreter-1">Yes</label>
+                            </div>
 
-
-                
-                
-                
-                
-                <div class="form-group bottom_0">
-                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
-                        <legend class="form-label heading-small bold">For other languages do you need an interpreter in court?</legend>
-                        <div class="multiple-choice"  data-target="interpreter-required">
-                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
-                            <label for="interpreter-1">Yes</label>
-                        </div>
-                        
-                        <div class="multiple-choice" data-target="details-not-correct">
-                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
-                            <label for="interpreter-2">No</label>
-                        </div>
-                    </fieldset>
+                            <div class="multiple-choice" data-target="details-not-correct">
+                                <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                                <label for="interpreter-2">No</label>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
                 
                 
-                <!--
-                <div class="form-group bottom_0">
+                
+                
+                
+                <div class="form-group bottom_0" id="englishLanguage">
                     <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
                         <legend class="form-label heading-small bold">Do you need an interpreter in court?</legend>
                         <div class="multiple-choice"  data-target="interpreter-required">
@@ -81,7 +97,6 @@
                         </div>
                     </fieldset>
                 </div>
-                -->
 
 
                  <div class="form-group">
