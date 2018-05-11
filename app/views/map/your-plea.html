@@ -81,10 +81,12 @@
                 <div class="form-group bottom_15">
                     <fieldset data-required data-error="You must select a plea for this charge">
                         <legend class="heading-small">How do you plead?</legend>
+                        
                         <div class="multiple-choice" data-target="pleading-guilty">
                             <input id="plea-1" type="radio" name="how-do-you-plead-group" value="Guilty" {{ checked('how-do-you-plead-group','Guilty') }}>
                             <label for="plea-1">Guilty</label>
                         </div>
+                        
                         <div class="js-hidden" id="pleading-guilty">
                             <div class="panel panel-border-wide top_15">
                                 <p id="citizenGuilty">You're declaring you comitted the offence.</p>
@@ -99,7 +101,7 @@
                         <div class="js-hidden" id="pleading-not-guilty">
                             <div class="panel panel-border-wide top_15">
                                 <p id="citizenNotGuilty">You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
-                                <p id="companyNotGuilty">You’re declaring that the company you represent did not commit  the offence, so you will need to attend court if you want to present your evidence.</p>
+                                <p id="companyNotGuilty">You’re declaring that the company you represent didn’t commit the offence, so you’ll need to present your evidence in court.</p>
                             </div>
                         </div>
 
