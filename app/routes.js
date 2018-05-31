@@ -15,6 +15,7 @@ module.exports = router
 router.post('/map/find-your-case', function (req, res) {
     
     var URN = req.session.data['URN']
+    var casePostcode = req.session.data['case-post-code']
 
     /* CITIZEN */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
@@ -27,7 +28,7 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-title'] = "Passenger failing to produce a ticket"
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
     /* CITIZEN */
-    } else if (URN == "TVL") {
+    } else if ((URN == "TVL") || (URN == "tvl")) {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -57,14 +58,24 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
     }*/
     
-    
+    /* WELSH OR ENGLISH? */
+    if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
+        req.session.data['defendant-address-line-2'] = "Portmeirion"
+        req.session.data['defendant-address-city'] = "Penrhyndeudraeth"
+        req.session.data['defendant-address-postcode'] = "LL48 6ER"
+    }
+
     req.session.data['returnToCYA'] = "No"
+    
+    res.redirect('/map/your-details')
         
+    /*
     if (URN == "TVL2") {
         res.redirect('/map/company-details')
     } else {
         res.redirect('/map/your-details')
     }
+    */
     
 })
 

@@ -27,11 +27,13 @@
 
 </script>
 
+{% include "includes/timeout-overlay.html" %}
+
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
     
-    <span id="casePostCode">{{data['case-post-code']}}</span>
+    <span id="casePostCode" style="display: none">{{data['case-post-code']}}</span>
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -39,11 +41,11 @@
             <form class="form" action="" method="post">
 
                 <h1 class="heading-xlarge">Not guilty plea</h1>
-                <p class="">Provide information for magistrates ahead of your court hearing.</p>
+                <p class="bottom_30">Provide information for magistrates ahead of your court hearing.</p>
 
-                <div class="form-group">
-                    <fieldset class="inline" data-required data-error="Tell us why you believe you are not guilty">
-                        <label class="form-label heading-small bold" for="textarea">Why do you believe you are not guilty?</label>
+                <div class="form-group bottom_15">
+                    <fieldset class="inline top_0" data-required data-error="Tell us why you believe you are not guilty">
+                        <label class="form-label bold bottom_5" for="textarea" style="">Why do you believe you are not guilty?</label>
                         <textarea class="form-control form-control-3-4" name="not-guilty-mitigation" id="not-guilty-mitigation" rows="10" style="width:100%">{{ data['not-guilty-mitigation'] }}</textarea>
                         <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
                     </fieldset>
@@ -66,8 +68,8 @@
                 </div>
                 
                 <div class="form-group bottom_0">
-                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
-                        <legend class="form-label heading-small bold" id="englishLanguage">Do you need an interpreter in court?</legend>
+                    <fieldset class="inline top_0" data-required data-error="You must tell us if you need an interpreter in court">
+                        <legend class="form-label bold bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
                         <legend class="form-label heading-small bold" id="welshLanguage">For other languages do you need an interpreter in court?</legend>
 
                         <div class="multiple-choice"  data-target="interpreter-required">

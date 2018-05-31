@@ -24,6 +24,7 @@
     
 </script>
 
+{% include "includes/timeout-overlay.html" %}
 
 <main id="content" role="main">
     
@@ -88,9 +89,9 @@
                         </div>
                         
                         <div class="js-hidden" id="pleading-guilty">
-                            <div class="panel panel-border-wide top_15">
-                                <p id="citizenGuilty">You're declaring you comitted the offence.</p>
-                                <p id="companyGuilty">You’re declaring that the company you represent did commit the offence.</p>
+                            <div class="panel panel-border-wide top_15" style="padding-top:15px; padding-bottom:10px">
+                                <p id="citizenGuilty" class="top_0 bottom_0">You're declaring you comitted the offence.</p>
+                                <p id="companyGuilty" class="top_0 bottom_0">You’re declaring that the company you represent did commit the offence.</p>
                             </div>
                         </div>
 
@@ -99,9 +100,9 @@
                             <label for="plea-2">Not guilty</label>
                         </div>
                         <div class="js-hidden" id="pleading-not-guilty">
-                            <div class="panel panel-border-wide top_15">
-                                <p id="citizenNotGuilty">You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
-                                <p id="companyNotGuilty">You’re declaring that the company you represent didn’t commit the offence, so you’ll need to present your evidence in court.</p>
+                            <div class="panel panel-border-wide top_15" style="padding-top:15px; padding-bottom:10px">
+                                <p id="citizenNotGuilty" class="top_0 bottom_0">You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                                <p id="companyNotGuilty" class="top_0 bottom_0">You’re declaring that the company you represent didn’t commit the offence, so you’ll need to present your evidence in court.</p>
                             </div>
                         </div>
 
