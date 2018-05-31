@@ -9,11 +9,10 @@
 <script>
 
     window.onload = function() {
-        
         // Check for a Welsh postcode
-        var casePostCode = document.getElementById('casePostCode').innerText;
+        var casePostcode = document.getElementById("casePostcode").innerHTML;
 
-        if ((casePostCode == "LL48 6ER") || (casePostCode == "LL486ER")) {
+        if ((casePostcode == "LL48 6ER") || (casePostCode == "LL486ER")) {
             document.getElementById('englishLanguage').style.display = "none";
             document.getElementById('welshLanguage-2').style.display = "block";
             document.getElementById('welshLanguage').style.display = "block";
@@ -22,9 +21,9 @@
             document.getElementById('welshLanguage').style.display = "none";
             document.getElementById('welshLanguage-2').style.display = "none";
         }
-        
-    }
 
+    }
+    
 </script>
 
 {% include "includes/timeout-overlay.html" %}
@@ -33,7 +32,7 @@
     
     {% include "includes/breadcrumb.html" %}
     
-    <span id="casePostCode" style="display: none">{{data['case-post-code']}}</span>
+    <div id="casePostcode" style="display:none">{{data['case-post-code']}}</div>
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -51,7 +50,8 @@
                     </fieldset>
                 </div>
                 
-                <div class="form-group bottom_30" id="welshLanguage-2">
+                <!-- IF A WELSH POSTCODE -->
+                <div class="form-group bottom_30" id="welshLanguage-2" style="display: none">
                     <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
                     <fieldset class="inline">
                         <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
@@ -70,7 +70,9 @@
                 <div class="form-group bottom_0">
                     <fieldset class="inline top_0" data-required data-error="You must tell us if you need an interpreter in court">
                         <legend class="form-label bold bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
-                        <legend class="form-label heading-small bold" id="welshLanguage">For other languages do you need an interpreter in court?</legend>
+                        
+                        <!-- IF A WELSH POSTCODE -->
+                        <legend class="form-label heading-small bold" id="welshLanguage" style="display: none">For other languages do you need an interpreter in court?</legend>
 
                         <div class="multiple-choice"  data-target="interpreter-required">
                             <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>

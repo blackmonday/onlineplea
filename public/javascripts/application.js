@@ -188,10 +188,12 @@ $(document).ready(function() {
 
 
     /* TIME OUT */
+    /*
     window.onload = function() {
         document.getElementById("timeoutOverlay").style.display = "none";
         document.getElementById("timeoutOverlay2").style.display = "none"; 
     }
+    */
 
     var timeoutID;
     var timeoutID2;

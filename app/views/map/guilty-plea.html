@@ -9,13 +9,6 @@
 <script>
     
     window.onload = function() {
-        
-        if (document.getElementById('URN').innerText == "TVL2") {
-            document.getElementById('citizenMitigation').style.display = "none";
-        } else {
-            document.getElementById('companyMitigation').style.display = "none";
-        }
-        
     }
     
 </script>
@@ -62,7 +55,6 @@
                     <label class="form-label" for="mitigation">
                         <p class="heading-small">Information for magistrates (optional)</p>
                         <p id="citizenMitigation" class="form-hint bottom_5">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances. They’ll take what you say into account when deciding on the sentence.</p>
-                        <p id="companyMitigation" class="form-hint bottom_5">This is also known as mitigation.  You can explain why the company committed the offence or tell the magistrates relevant circumstances. They’ll take what you say into account when deciding on the sentence.</p>
                     </label>
                     <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%">{{ data['mitigation'] }}</textarea>
                     <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
