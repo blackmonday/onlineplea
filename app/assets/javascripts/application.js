@@ -190,19 +190,20 @@ $(document).ready(function() {
     /* TIME OUT */
     window.onload = function() {
         document.getElementById("overlay").style.display = "none";
-        document.getElementById("overlay2").style.display = "none";
-        
+        document.getElementById("overlay2").style.display = "none"; 
     }
 
     var timeoutID;
     var timeoutID2;
 
     // countDown1 - How long to count down for?
-    var yyy = 5000;
-    document.getElementById("countDown1").innerHTML = yyy/1000;
+    var yyy = 60000;
 
-    // countDown2 - How long to count down for?
-    var xxx = 10000;
+    // countDown2 (timer) - How long to count down for?
+    var xxx = 30000;
+
+    // total time
+    document.getElementById("countDown1").innerHTML = (xxx+yyy)/1000;
 
     function setup() {
         this.addEventListener("mousemove", resetTimer, false);
@@ -282,7 +283,7 @@ $(document).ready(function() {
             // Output the result in an element with id="demo"
             document.getElementById("countDown2").innerHTML = counter;
             
-            if (counter == 5) {
+            if (counter == 10) {
                 document.getElementById("finalCountdown").style.display = "block";
             }
             // If the count down is over, write some text 

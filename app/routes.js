@@ -17,7 +17,7 @@ router.post('/map/find-your-case', function (req, res) {
     var URN = req.session.data['URN']
     var casePostcode = req.session.data['case-post-code']
 
-    /* CITIZEN */
+    /* Transport for London */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
@@ -27,7 +27,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Passenger failing to produce a ticket"
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
-    /* CITIZEN */
+    /* TV Licensing */
     } else if ((URN == "TVL") || (URN == "tvl")) {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
@@ -37,17 +37,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
         req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
-    /* COMPANY */
-    } else if (URN == "TVL2") {
-        req.session.data['company-name'] = "Acme Ltd"
-        req.session.data['company-address-line-1'] = "123 High Street"
-        req.session.data['company-address-city'] = "London"
-        req.session.data['company-address-postcode'] = "N1 9XY"
-
-        req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
-        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
-    /* CITIZEN */
-    } /*else {
+    } else {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -56,7 +46,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
-    }*/
+    }
     
     /* WELSH OR ENGLISH? */
     if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
@@ -67,15 +57,13 @@ router.post('/map/find-your-case', function (req, res) {
 
     req.session.data['returnToCYA'] = "No"
     
-    res.redirect('/map/your-details')
+    //res.redirect('/map/your-details')
         
-    /*
-    if (URN == "TVL2") {
-        res.redirect('/map/company-details')
-    } else {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl")) {
         res.redirect('/map/your-details')
+    } else {
+        res.redirect('/map/find-your-case')
     }
-    */
     
 })
 
