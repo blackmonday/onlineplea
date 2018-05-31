@@ -4,7 +4,7 @@ var timeoutID;
 var timeoutID2;
 
 // countDown1 - How long to count down for?
-var yyy = 1000;
+var yyy = 60000;
 
 // countDown2 (timer) - How long to count down for?
 var xxx = 30000;
