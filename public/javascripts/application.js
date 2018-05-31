@@ -189,8 +189,8 @@ $(document).ready(function() {
 
     /* TIME OUT */
     window.onload = function() {
-        document.getElementById("overlay").style.display = "none";
-        document.getElementById("overlay2").style.display = "none"; 
+        document.getElementById("timeoutOverlay").style.display = "none";
+        document.getElementById("timeoutOverlay2").style.display = "none"; 
     }
 
     var timeoutID;
@@ -224,7 +224,7 @@ $(document).ready(function() {
 
     function goInactive() {
         startTimer2();
-        document.getElementById("overlay").style.display = "block";
+        document.getElementById("timeoutOverlay").style.display = "block";
     }
 
     function startTimer2() {
@@ -235,8 +235,8 @@ $(document).ready(function() {
 
     function goInactive2() {
         window.clearTimeout(timeoutID2);
-        document.getElementById("overlay").style.display = "none";
-        document.getElementById("overlay2").style.display = "block";
+        document.getElementById("timeoutOverlay").style.display = "none";
+        document.getElementById("timeoutOverlay2").style.display = "block";
     }
 
     function resetTimer(e) {
@@ -249,7 +249,7 @@ $(document).ready(function() {
     }
 
     function off() {
-        document.getElementById("overlay").style.display = "none";
+        document.getElementById("timeoutOverlay").style.display = "none";
         document.getElementById("finalCountdown").style.display = "none";
         window.clearTimeout(timeoutID);
         window.clearTimeout(timeoutID2);
@@ -257,10 +257,10 @@ $(document).ready(function() {
     }
     
     function off2() {
-        document.getElementById("overlay2").style.display = "none";
+        document.getElementById("timeoutOverlay2").style.display = "none";
         window.clearTimeout(timeoutID2);
         
-        document.getElementById("overlay").style.display = "none";
+        document.getElementById("timeoutOverlay").style.display = "none";
         document.getElementById("finalCountdown").style.display = "none";
         window.clearTimeout(timeoutID);
         startTimer();
