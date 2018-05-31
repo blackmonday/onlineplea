@@ -207,7 +207,7 @@ $path: "/public/images/";
 
 
 /* OVERLAY */
-#overlay, #overlay2 {
+#timeoutOverlay, #timeoutOverlay2 {
     position: fixed; /* Sit on top of the page content */
     //display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
@@ -219,13 +219,13 @@ $path: "/public/images/";
     z-index: 20000; /* Specify a stack order in case you're using a different order for other elements */
     //cursor: pointer; /* Add a pointer on hover */
 }
-#overlay {
+#timeoutOverlay {
     background-color: rgba(255,255,255,0.5); /* Black background with opacity */
 }
-#overlay2 {
+#timeoutOverlay2 {
     background-color: rgba(255,255,255,1); /* Black background with opacity */
 }
-#overlay-info,#overlay-info-2 {
+#timeoutOverlay-info,#timeoutOverlay-info-2 {
     width:400px;
     background-color:white;
     padding:30px;
