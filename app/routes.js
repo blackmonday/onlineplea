@@ -67,11 +67,6 @@ router.post('/map/find-your-case', function (req, res) {
     
 })
 
-
-
-
-
-
 // ***********
 // You details
 router.post('/map/your-details', function (req, res) {
@@ -114,11 +109,6 @@ router.post('/map/your-details', function (req, res) {
     
 })
 
-
-
-
-
-
 // ***************
 // Company details
 router.post('/map/company-details', function (req, res) {
@@ -156,11 +146,6 @@ router.post('/map/company-details', function (req, res) {
     }
     
 })
-
-
-
-
-
 
 // ***********
 // Your plea
@@ -380,7 +365,6 @@ router.post('/map/your-employment', function (req, res) {
     
 })
 
-
 // **********************
 // Your monthly outgoings
 router.post('/map/your-monthly-outgoings', function (req, res) {
@@ -422,7 +406,6 @@ router.post('/map/your-monthly-outgoings-detail', function (req, res) {
     
 })
 
-
 // *************
 // Your benefits
 router.post('/map/your-benefits', function (req, res) {
@@ -437,7 +420,6 @@ router.post('/map/your-benefits', function (req, res) {
     
 })
 
-
 // ******************
 // Check your answers
 router.post('/map/check-your-answers', function (req, res) {
@@ -446,7 +428,6 @@ router.post('/map/check-your-answers', function (req, res) {
     
 })
 
-
 // ***********
 // Declaration
 router.post('/map/declaration', function (req, res) {
@@ -454,7 +435,6 @@ router.post('/map/declaration', function (req, res) {
   res.redirect('/map/confirmation')    
     
 })
-
 
 // ************
 // Confirmation

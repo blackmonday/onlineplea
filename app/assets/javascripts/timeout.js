@@ -4,7 +4,7 @@ var timeoutID;
 var timeoutID2;
 
 // countDown1 - How long to count down for?
-var yyy = 60000;
+var yyy = 1000;
 
 // countDown2 (timer) - How long to count down for?
 var xxx = 30000;
@@ -55,7 +55,7 @@ function goActive() {
     startTimer();
 }
 
-function off() {
+function timeoutOff() {
     document.getElementById("timeoutOverlay").style.display = "none";
     document.getElementById("finalCountdown").style.display = "none";
     window.clearTimeout(timeoutID);
@@ -63,7 +63,7 @@ function off() {
     startTimer();
 }
 
-function off2() {
+function timeoutOff2() {
     document.getElementById("timeoutOverlay2").style.display = "none";
     window.clearTimeout(timeoutID2);
 
