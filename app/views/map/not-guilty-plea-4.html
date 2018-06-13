@@ -1,0 +1,140 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<script>
+
+    window.onload = function() {
+        // Check for a Welsh postcode
+        var casePostcode = document.getElementById("casePostcode").innerHTML;
+
+        if ((casePostcode == "LL48 6ER") || (casePostCode == "LL486ER")) {
+            document.getElementById('englishLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "block";
+        } else {
+            document.getElementById('englishLanguage').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "none";
+        }
+
+    }
+    
+</script>
+
+{% include "includes/timeout-overlay.html" %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+    
+    <div id="casePostcode" style="display:none">{{data['case-post-code']}}</div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+
+                <h1 class="heading-xlarge">Not guilty plea</h1>
+                <p class="bottom_30">Provide information for magistrates ahead of your court hearing.</p>
+
+                <p class="heading-medium">Attending court</p>
+
+                <div class="form-group bottom_5">
+                    <fieldset class="inline" data-required data-error="You must tell us if there are any dates you or your witness can not attend court">
+                        <legend class="heading-small">Are there any dates you or your witness can not attend court?</legend>
+                        <div class="multiple-choice"  data-target="dates-to-avoice-required">
+                            <input id="dates-to-avoid-1" type="radio" name="dates-to-avoid-group" value="Yes" {{ checked('dates-to-avoid-group','Yes') }}>
+                        <label for="dates-to-avoid-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="dates-to-avoid-2" type="radio" name="dates-to-avoid-group" value="No" {{ checked('dates-to-avoid-group','No') }}>
+                            <label for="dates-to-avoid-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="dates-to-avoice-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Enter the dates you or your witness can not attend court</p>
+                                <textarea class="form-control form-control-3-4" name="dates-to-avoid-details" id="dates-to-avoid-details" rows="5">{{ data['dates-to-avoid-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_4"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- IF A WELSH POSTCODE -->
+                <div class="form-group bottom_30" id="welshLanguage-2" style="display: none">
+                    <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
+                    <fieldset class="inline">
+                        <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
+                        <div class="multiple-choice">
+                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                            <label for="welsh-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                            <label for="welsh-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="form-group bottom_0">
+                    <fieldset class="inline top_0" data-required data-error="You must tell us if you need an interpreter in court">
+                        <legend class="form-label bold bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
+                        
+                        <!-- IF A WELSH POSTCODE -->
+                        <legend class="form-label heading-small bold" id="welshLanguage" style="display: none">For other languages do you need an interpreter in court?</legend>
+
+                        <div class="multiple-choice"  data-target="interpreter-required">
+                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                            <label for="interpreter-1">Yes</label>
+                        </div>
+                        
+                        <div class="multiple-choice" data-target="details-not-correct">
+                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                            <label for="interpreter-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                 <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="interpreter-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Which language?</p>
+                                <p class="form-hint bottom_5">You can include sign language</p>
+                                <input class="form-control" id="interpeter-language" type="text" name="interpeter-language" value="{{ data['interpeter-language'] }}">
+                            </div>
+                        </div>
+                     </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

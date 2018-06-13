@@ -254,10 +254,50 @@
         if (companyAddressPostcode == "<br>") {
             var companyAddressPostcode = document.getElementById("companyAddressPostcode").style.display = "none";
         }
+        
+        
+        
+        
+        
+        /* WHEN TO HIDE DEDUCT FROM BENEFITS */
+        var deductFromBenefitsGroup = document.getElementById('deductFromBenefitsGroup').innerText;
+        if (deductFromBenefitsGroup == "") {
+            document.getElementById("deductFromBenefits").style.display = "none";
+        } 
 
     
     
-    
+        
+        
+        /* ************ */
+        /* ************ */
+        /* CONVER MONTH */
+        var dobMonth = document.getElementById('dobMonth').innerText;
+        if (dobMonth == "1") {
+            document.getElementById('dobMonth').innerText = "January";
+        } else if (dobMonth == "2") {
+            document.getElementById('dobMonth').innerText = "February";
+        } else if (dobMonth == "3") {
+            document.getElementById('dobMonth').innerText = "March";
+        } else if (dobMonth == "4") {
+            document.getElementById('dobMonth').innerText = "April";
+        } else if (dobMonth == "5") {
+            document.getElementById('dobMonth').innerText = "May";
+        } else if (dobMonth == "6") {
+            document.getElementById('dobMonth').innerText = "June";
+        } else if (dobMonth == "7") {
+            document.getElementById('dobMonth').innerText = "July";
+        } else if (dobMonth == "8") {
+            document.getElementById('dobMonth').innerText = "August";
+        } else if (dobMonth == "9") {
+            document.getElementById('dobMonth').innerText = "September";
+        } else if (dobMonth == "10") {
+            document.getElementById('dobMonth').innerText = "October";
+        } else if (dobMonth == "11") {
+            document.getElementById('dobMonth').innerText = "November";
+        } else if (dobMonth == "12") {
+            document.getElementById('dobMonth').innerText = "December";
+        }
     
 
     }
@@ -352,7 +392,7 @@
                             Date of birth
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['dob-day'] }} &nbsp; {{ data['dob-month'] }} &nbsp; {{ data['dob-year'] }}
+                            {{ data['dob-day'] }}&nbsp;<span id="dobMonth">{{ data['dob-month'] }}</span>&nbsp;{{ data['dob-year'] }}
                         </dd>
                         <dd class="cya-change"></dd>
                     </div>
@@ -532,7 +572,7 @@
                             If you need to pay a penalty, would you like us to deduct it from your benefits?
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['deductions-from-benefits-group'] }}
+                            <span id="deductFromBenefitsGroup">{{ data['deductions-from-benefits-group'] }}</span>
                         </dd>
                     </div>
 

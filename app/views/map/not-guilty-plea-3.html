@@ -42,14 +42,37 @@
                 <h1 class="heading-xlarge">Not guilty plea</h1>
                 <p class="bottom_30">Provide information for magistrates ahead of your court hearing.</p>
 
-                <div class="form-group bottom_15">
-                    <fieldset class="inline top_0" data-required data-error="Tell us why you believe you are not guilty">
-                        <label class="form-label bold bottom_5" for="textarea" style="">Why do you believe you are not guilty?</label>
-                        <textarea class="form-control form-control-3-4" name="not-guilty-mitigation" id="not-guilty-mitigation" rows="10" style="width:100%">{{ data['not-guilty-mitigation'] }}</textarea>
-                        <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
+                <p class="heading-medium">Your witness</p>
+
+                <div class="form-group bottom_0">
+                    <fieldset class="inline" data-required data-error="You must tell us if you want to call a defence witness">
+                        <legend class="heading-small">Do you want to bring your own witness?</legend>
+                        <p class="form-hint bottom_5">Someone who can give evidence in court supporting your case</p>
+                        
+                        <div class="multiple-choice"  data-target="witness-2-required">
+                            <input id="defence-witness-1" type="radio" name="witness-2-group" value="Yes" {{ checked('witness-2-group','Yes') }}>
+                            <label for="defence-witness-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="defence-witness-2" type="radio" name="witness-2-group" value="No" {{ checked('witness-2-group','No') }}>
+                            <label for="defence-witness-2">No</label>
+                        </div>
                     </fieldset>
                 </div>
-                
+                    
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="witness-2-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Enter the name and address of your witness and their age and date of birth if known</p>
+                                <textarea class="form-control form-control-3-4" name="witness-2-details" id="witness-2-details" rows="5">{{ data['witness-2-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_3"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
                 <div class="form-group">
                     <p class="top_30"><input class="button" type="submit" value="Continue"></p>
                     <p>{% include "includes/back_link.html" %}</p>

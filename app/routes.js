@@ -19,6 +19,8 @@ router.post('/map/find-your-case', function (req, res) {
 
     /* Transport for London */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
+        req.session.data['prosecutor'] = "Transport for London"
+        
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -29,6 +31,8 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
     /* TV Licensing */
     } else if ((URN == "TVL") || (URN == "tvl")) {
+        req.session.data['prosecutor'] = "TV Licensing"
+        
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
@@ -37,6 +41,18 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
         req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
+    /* DVLA */
+    } else if ((URN == "DVLA") || (URN == "dvla")) {
+        req.session.data['prosecutor'] = "DVLA"
+        
+        req.session.data['defendant-first-name'] = "Sam"
+        req.session.data['defendant-last-name'] = "Smith"
+        req.session.data['defendant-address-line-1'] = "38A Baker Street"
+        req.session.data['defendant-address-city'] = "London"
+        req.session.data['defendant-address-postcode'] = "W1 7SX"
+
+        req.session.data['charge-title'] = "Keep a vehicle without a vehicle license"
+        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
     } else {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
@@ -44,8 +60,8 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
-        req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
-        req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
+        req.session.data['charge-title'] = "Generic charge title"
+        req.session.data['charge-detail'] = "Generic charge detail ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
     }
     
     /* WELSH OR ENGLISH? */
@@ -59,7 +75,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     //res.redirect('/map/your-details')
         
-    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl")) {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl") || (URN == "DVLA") || (URN == "dvla")) {
         res.redirect('/map/your-details')
     } else {
         res.redirect('/map/find-your-case')
@@ -70,6 +86,19 @@ router.post('/map/find-your-case', function (req, res) {
 // ***********
 // You details
 router.post('/map/your-details', function (req, res) {
+    
+    var areTheseDetailsCorrect = req.session.data['name-address-group'];
+    if (areTheseDetailsCorrect == "Yes") {
+        res.redirect('/map/your-details-3')
+    } else if (areTheseDetailsCorrect == "No") {
+        res.redirect('/map/your-details-2')
+    }
+    
+})
+
+// *************
+// You details 2
+router.post('/map/your-details-2', function (req, res) {
     
     var new_first_name = req.session.data['new-defendant-first-name']
     var new_last_name = req.session.data['new-defendant-last-name']
@@ -101,6 +130,14 @@ router.post('/map/your-details', function (req, res) {
         req.session.data['defendant-address-postcode'] = new_address_postcode
     }
         
+    res.redirect('/map/your-details-3')
+    
+})
+
+// *************
+// You details 3
+router.post('/map/your-details-3', function (req, res) {
+            
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
     } else if (req.session.data['returnToCYA'] == "No") {
@@ -256,26 +293,39 @@ router.post('/map/your-court-hearing', function (req, res) {
 // Not guilty plea
 router.post('/map/not-guilty-plea', function (req, res) {
 
+    res.redirect('/map/not-guilty-plea-2')
+    
+})
+
+// ***************
+// Not guilty plea 2
+router.post('/map/not-guilty-plea-2', function (req, res) {
+
+    res.redirect('/map/not-guilty-plea-3')
+    
+})
+
+// ***************
+// Not guilty plea 3
+router.post('/map/not-guilty-plea-3', function (req, res) {
+
+    res.redirect('/map/not-guilty-plea-4')
+    
+})
+
+// ***************
+// Not guilty plea 4
+router.post('/map/not-guilty-plea-4', function (req, res) {
+
     if (req.session.data['returnToCYA'] == "Yes") {
         res.redirect('check-your-answers')
-    } else if (req.session.data['returnToCYA'] == "No") {
-        
-        
-        
-        
+    } else if (req.session.data['returnToCYA'] == "No") {   
         if (req.session.data['URN'] == "TVL2") {
             res.redirect('/map/company-finances')
         } else {
             res.redirect('/map/your-finances')
         }
-
-        
-        
-        
-        //res.redirect('/map/your-finances')
     }
-
-    //res.redirect('/map/your-finances')
     
 })
 
@@ -308,23 +358,22 @@ router.post('/map/company-income', function (req, res) {
 // Your income
 router.post('/map/your-income', function (req, res) {
 
-  var employment_status = req.session.data['employment-status-group']
-  var claiming_benefits = req.session.data['claiming-benefits-group']
+    var employment_status = req.session.data['employment-status-group']
+    var claiming_benefits = req.session.data['claiming-benefits-group']
 
-  if ((employment_status == "Employed") || (employment_status == "Self-employed")){
-    res.redirect('/map/deductions-from-earnings')
-  } else if (claiming_benefits == "Yes"){
-    res.redirect('/map/your-benefits')
-  } else {
-      
-    if (req.session.data['returnToCYA'] == "Yes") {
-        res.redirect('check-your-answers')
-    } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-monthly-outgoings')
-    }
+    if (claiming_benefits == "Yes") {
+        res.redirect('/map/your-benefits')
+    } else if ((employment_status == "Employed") || (employment_status == "Self-employed")) {
+        res.redirect('/map/deductions-from-earnings')
 
-      //res.redirect('/map/your-monthly-outgoings')
-  }  
+    } else {
+
+        if (req.session.data['returnToCYA'] == "Yes") {
+            res.redirect('check-your-answers')
+        } else if (req.session.data['returnToCYA'] == "No") {
+            res.redirect('/map/your-monthly-outgoings')
+        }
+    }  
     
 })
 
@@ -410,13 +459,17 @@ router.post('/map/your-monthly-outgoings-detail', function (req, res) {
 // Your benefits
 router.post('/map/your-benefits', function (req, res) {
 
-    if (req.session.data['returnToCYA'] == "Yes") {
-        res.redirect('check-your-answers')
-    } else if (req.session.data['returnToCYA'] == "No") {
-        res.redirect('/map/your-monthly-outgoings')
+    var employment_status = req.session.data['employment-status-group']
+    
+    if ((employment_status == "Employed") || (employment_status == "Self-employed")) {
+        res.redirect('/map/your-employment')
+    } else {
+        if (req.session.data['returnToCYA'] == "Yes") {
+            res.redirect('check-your-answers')
+        } else if (req.session.data['returnToCYA'] == "No") {
+            res.redirect('/map/your-monthly-outgoings')
+        }
     }
-
-    //res.redirect('/map/your-monthly-outgoings')    
     
 })
 

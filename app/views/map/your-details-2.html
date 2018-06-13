@@ -1,0 +1,74 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/timeout-overlay.html" %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+                
+                <h1 class="heading-xlarge">Your details</h1>
+            
+                <!-- Changes to name and address -->
+                <div class="form-group">
+                    <fieldset>
+                        <div id="details-not-correct">
+                            <div class="">
+                                <h2 class="heading-medium">Changes to name</h2>
+
+                                <label class="form-label" for="new-defendant-first-name">First name</label>
+                                <input class="form-control" id="new-defendant-first-name" type="text" name="new-defendant-first-name" value="{{ data['new-defendant-first-name'] }}">
+
+                                <label class="form-label top_15" for="new-defendant-last-name">Last name</label>
+                                <input class="form-control" id="new-defendant-last-name" type="text" name="new-defendant-last-name" value="{{ data['new-defendant-last-name'] }}">
+                            </div>
+
+                            <div class="top_15">
+                                <h2 class="heading-medium">Changes to address</h2>
+
+                                <label class="form-label" for="new-defendant-address-line">Address</label>
+                                <input class="form-control bottom_5" id="new-defendant-address-line-1" type="text" name="new-defendant-address-line-1" value="{{ data['new-defendant-address-line-1'] }}">
+                                <input class="form-control" id="new-defendant-address-line-2" type="text" name="new-defendant-address-line-2" value="{{ data['new-defendant-address-line-2'] }}">
+
+                                <label class="form-label top_30" for="new-defendant-address-city">Town or city</label>
+                                <input class="form-control" id="new-defendant-address-city" type="text" name="new-defendant-address-city" value="{{ data['new-defendant-address-city'] }}">
+
+                                <label class="form-label top_15" for="new-defendant-address-county">County (optional)</label>
+                                <input class="form-control" id="new-defendant-address-county" type="text" name="new-defendant-address-county" value="{{ data['new-defendant-address-county'] }}">
+
+                                <label class="form-label top_15" for="new-defendant-address-postcode">Postcode</label>
+                                <input class="form-control" id="new-defendant-address-postcode" type="text" name="new-defendant-address-postcode" value="{{ data['new-defendant-address-postcode'] }}">
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

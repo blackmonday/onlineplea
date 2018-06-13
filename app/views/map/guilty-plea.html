@@ -28,6 +28,8 @@
 
                 <h1 class="heading-xlarge">Guilty plea</h1>
 
+                <h2 class="heading-medium">Would you like to come to court?</h2>
+
                 <div class="panel panel-border-wide">
                     <p>You have the right to attend an open court hearing but don’t have to. The magistrate can also consider your case without you and send you their decision by post.</p>
                     <p>If you are needed to attend court we will write to you.</p>
@@ -36,7 +38,7 @@
 
                 <div class="form-group">
                     <fieldset class="top_30" data-required data-error="Choose an answer">
-                        <legend class="heading-small">Would you like to come to court?</legend>
+                        <!--<legend class="heading-small">Would you like to come to court?</legend>-->
                         <div class="multiple-choice">
                             <input id="court-1" type="radio" name="do-you-want-to-come-to-court-group" value="No" {{ checked('do-you-want-to-come-to-court-group','No') }}>
                             <label for="court-1">No, I do not want to come to court</label>
@@ -48,12 +50,12 @@
                     </fieldset>
                 </div>
                 
-                <hr>
+                <hr class="top_60 bottom_60">
                 
                 <div class="form-group">
                 
                     <label class="form-label" for="mitigation">
-                        <p class="heading-small">Information for magistrates (optional)</p>
+                        <p class="heading-medium">Information for magistrates (optional)</p>
                         <p id="citizenMitigation" class="form-hint bottom_5">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances. They’ll take what you say into account when deciding on the sentence.</p>
                     </label>
                     <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%">{{ data['mitigation'] }}</textarea>

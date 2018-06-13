@@ -4,13 +4,47 @@ var timeoutID;
 var timeoutID2;
 
 // countDown1 - How long to count down for?
-var yyy = 60000;
+var yyy = 240000; //60000 = 1 minute
 
 // countDown2 (timer) - How long to count down for?
-var xxx = 30000;
+var xxx = 60000; //30000 = 30 seconds
 
-// total time
-document.getElementById("countDown1").innerHTML = (xxx+yyy)/1000;
+
+
+
+
+
+
+
+
+// total time - seconds
+//document.getElementById("countDown1").innerHTML = (xxx+yyy)/1000;
+
+var minutes = Math.floor((xxx+yyy) / 60000);
+var seconds = (((xxx+yyy) % 60000) / 1000).toFixed(0);
+var minText;
+
+if (minutes > "1") {
+    minText = "minutes"
+} else {
+    minText = "minute"
+}
+
+//document.getElementById("countDown1").innerHTML = (minutes + " minutes and " + (seconds < 10 ? '0' : '') + seconds + " seconds");
+
+if (((seconds < 10 ? '0' : '') + seconds) == '00') {
+    document.getElementById("countDown1").innerHTML = minutes + " "+minText;
+} else {
+    document.getElementById("countDown1").innerHTML = minutes + " "+minText+" and " + (seconds < 10 ? '0' : '') + seconds + " seconds";
+};
+
+
+
+
+
+
+
+
 
 function setup() {
     this.addEventListener("mousemove", resetTimer, false);
@@ -72,7 +106,7 @@ function timeoutOff2() {
     window.clearTimeout(timeoutID);
     startTimer();
 
-    window.location.replace('start-page.html');
+    window.location.replace('find-your-case.html');
 
 }
 
@@ -90,7 +124,7 @@ function countDownTimer(howLong) {
         // Output the result in an element with id="demo"
         document.getElementById("countDown2").innerHTML = counter;
 
-        if (counter == 10) {
+        if (counter == 30) {
             document.getElementById("finalCountdown").style.display = "block";
         }
         // If the count down is over, write some text 
@@ -100,3 +134,5 @@ function countDownTimer(howLong) {
         }
     }, 1000);
 }
+
+
