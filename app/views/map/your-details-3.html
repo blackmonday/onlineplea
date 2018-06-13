@@ -17,20 +17,20 @@
             
             <form class="form" action="" method="post">
                 
-                <h1 class="heading-xlarge">Your details</h1>
+                <h1 class="heading-xlarge bottom_30">Your details</h1>
             
                 <!-- Contact numbers -->
                 <div class="form-group">
                     <fieldset>
-                        <h2 class="heading-medium top_15">Enter other details</h2>
+                        <h2 class="heading-medium top_30">Enter other details</h2>
 
                         <p class="bold bottom_5">Contact numbers</p>
-                        <p class="form-hint bottom_10">The court may need to contact you so they can resolve your case quickly - enter at least one number</p>
+                        <p class="form-hint bottom_10">The court may need to contact you so they can resolve your case quickly - <span class="bold">enter at least one number</span></p>
 
-                        <label class="form-label top_10" for="home-telephone">Home telephone (optional)</label>
+                        <label class="form-label top_10" for="home-telephone">Home telephone</label>
                         <input class="form-control" id="home-telephone" type="tel" name="home-telephone" value="{{ data['home-telephone'] }}">
 
-                        <label class="form-label top_15" for="mobile-number">Mobile number (optional)</label>
+                        <label class="form-label top_15" for="mobile-number">Mobile number</label>
                         <input class="form-control" id="mobile-number" type="tel" name="mobile-number" value="{{ data['mobile-number'] }}">
                     </fieldset>
                 </div>

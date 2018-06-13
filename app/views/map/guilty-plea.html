@@ -50,15 +50,18 @@
                     </fieldset>
                 </div>
                 
-                <hr class="top_60 bottom_60">
+                <hr class="top_60 bottom_60" style="border-color: #BFC1C3">
                 
                 <div class="form-group">
                 
                     <label class="form-label" for="mitigation">
-                        <p class="heading-medium">Information for magistrates (optional)</p>
-                        <p id="citizenMitigation" class="form-hint bottom_5">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances. They’ll take what you say into account when deciding on the sentence.</p>
+                        <p class="heading-medium bottom_10">Information for magistrates (optional)</p>
+                            <div id="citizenMitigation">
+                                <p class="bottom_10">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances.</p>
+                                <p class="bottom_10">They’ll take what you say into account when deciding on the sentence.</p>
+                            </div>
                     </label>
-                    <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%">{{ data['mitigation'] }}</textarea>
+                    <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="15" style="width:100%">{{ data['mitigation'] }}</textarea>
                     <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
 
                 </div>
