@@ -21,6 +21,11 @@
             document.getElementById('companyCYA').style.display = "none";
         }
         
+        var defendantTitle = document.getElementById('defendantTitle').innerText;
+        if(defendantTitle == " ") {
+            alert('no title');
+        }
+        
         var outgoingsGroup = document.getElementById("outgoingsGroup").innerText;
         if (outgoingsGroup == "No") {
             document.getElementById("outgoingsDetail").style.display = "none";
@@ -338,7 +343,7 @@
                             Name
                         </dt>
                         <dd class="cya-answer">
-                            {{ data['defendant-first-name'] }} {{ data['defendant-last-name'] }}
+                            <span id="defendantTitle">{{ data['defendant-title'] }} </span>{{ data['defendant-first-name'] }} <span style="text-transform: uppercase">{{ data['defendant-last-name'] }}</span>
                         </dd>
                         <dd class="cya-change"></dd>
                     </div>
