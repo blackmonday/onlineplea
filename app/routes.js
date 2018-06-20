@@ -41,6 +41,17 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
         req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
+    } else if ((URN == "123123123C")) {
+        req.session.data['prosecutor'] = "TV Licensing"
+        
+        req.session.data['defendant-first-name'] = "A"
+        req.session.data['defendant-last-name'] = "Participant"
+        req.session.data['defendant-address-line-1'] = "1 My Street"
+        req.session.data['defendant-address-city'] = "London"
+        req.session.data['defendant-address-postcode'] = "AN9 9YZ"
+
+        req.session.data['charge-title'] = "Use a television set without a licence"
+        req.session.data['charge-detail'] = "On 30/05/2018 used a colour television receiver without a licence at the above address."
     /* DVLA */
     } else if ((URN == "DVLA") || (URN == "dvla")) {
         req.session.data['prosecutor'] = "DVLA"
@@ -75,7 +86,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     //res.redirect('/map/your-details')
         
-    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl") || (URN == "DVLA") || (URN == "dvla")) {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl") || (URN == "123123123C") || (URN == "DVLA") || (URN == "dvla")) {
         res.redirect('/map/your-details')
     } else {
         res.redirect('/map/find-your-case')
