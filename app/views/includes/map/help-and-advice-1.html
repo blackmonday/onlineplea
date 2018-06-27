@@ -1,6 +1,15 @@
-<nav role="navigation" aria-labelledby="subsection-title">
-    <p class="font-xsmall bold bottom_10">If you think you shouldn't have been prosecuted contact {{data['prosecutor']}}</p>
+<script>
+    window.onload = function() {
+        var prosecutor = document.getElementById('prosecutor').innerHTML;
+        if (prosecutor == "DVLA") {
+            document.getElementById('prosecutor_help').style.display = "none";
+        }
+    }
+</script>
+
+<nav id="prosecutor_help" role="navigation" aria-labelledby="subsection-title">
+    <p class="font-xsmall bold bottom_10">If you think you shouldn't have been prosecuted contact <span id="prosecutor">{{data['prosecutor']}}</span></p>
     <p class="font-xsmall bottom_5">Telephone: 020 7027 9158</p>
-    <p class="font-xsmall top_5">Email: <a href="mailto:help@gov.uk">help@gov.uk</a></p>
+    <p class="font-xsmall top_5 bottom_30">Email: <a href="mailto:help@gov.uk">help@gov.uk</a></p>
     <!--<p class="font-xsmall top_5">Email: <a href="mailto:IAP@tfl.gov.uk">IAP@tfl.gov.uk</a></p>-->
 </nav>

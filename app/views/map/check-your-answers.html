@@ -10,6 +10,9 @@
     .cya-question {
         font-weight:normal !important;
     }
+    .table-column-width {
+        width:45% !important;
+    }
 </style>
 
 <script>
@@ -324,6 +327,8 @@
             <!-- CITIZEN -->
             <div id="citizenCYA">
                 
+                <!-- --------------- -->
+                <!-- --------------- -->
                 <!-- CIZIZEN DETAILS -->
                 <dl class="govuk-check-your-answers cya-questions-short top_0">
                     <div>
@@ -339,7 +344,7 @@
                     </div>
 
                     <div>
-                        <dt class="cya-question">
+                        <dt class="cya-question table-column-width">
                             Name
                         </dt>
                         <dd class="cya-answer">
@@ -413,6 +418,12 @@
                     </div>
                 </dl>
             
+                
+                
+                
+                
+                <!-- ------------ -->
+                <!-- ------------ -->
                 <!-- CIZIZEN PLEA -->
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
@@ -430,7 +441,7 @@
 
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
-                        <dt class="cya-question">
+                        <dt class="cya-question table-column-width">
                             Plea
                         </dt>
                         <dd class="cya-answer" id="HowDoYouPlead">
@@ -529,6 +540,12 @@
                     </div>
                 </dl>
          
+                
+                
+                
+                
+                <!-- ---------------- -->
+                <!-- ---------------- -->
                 <!-- CIZIZEN FINANCES -->
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
@@ -546,7 +563,7 @@
 
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
-                        <dt class="cya-question">
+                        <dt class="cya-question table-column-width">
                             Income (after tax)
                         </dt>
                         <dd class="cya-answer">
@@ -641,6 +658,12 @@
 
                 </dl>
 
+                
+                
+                
+                <!-- ----------------- -->
+                <!-- ----------------- -->
+                <!-- MONTHLY OUTGOINGS -->
                 <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
                         <dt class="cya-question" style="border: none;">
@@ -658,7 +681,7 @@
                 <!-- CIZIZEN OUTGOINGS -->
                <dl class="govuk-check-your-answers cya-questions-short">
                     <div>
-                        <dt class="cya-question">
+                        <dt class="cya-question table-column-width">
                             Would you like to give details of your personal bills?
                         </dt>
                         <dd class="cya-answer" id="outgoingsGroup">
@@ -941,6 +964,8 @@
                 </div>
             </form>
             
+            {% include "includes/welsh.html" %}
+
         </div>
         
         
