@@ -8,6 +8,23 @@
 
 <script>
     window.onload = function() { 
+        var chargeDetail2 = document.getElementById('chargeDetail2').innerHTML;
+        var chargeDetail3 = document.getElementById('chargeDetail3').innerHTML;
+        var chargeDetail4 = document.getElementById('chargeDetail4').innerHTML;
+        var chargeDetail5 = document.getElementById('chargeDetail5').innerHTML;
+        
+        if (chargeDetail2 == "<br><br>") {
+            document.getElementById('chargeDetail2').style.display = "none";
+        }
+        if (chargeDetail3 == "<br><br>") {
+            document.getElementById('chargeDetail3').style.display = "none";
+        }
+        if (chargeDetail4 == "<br><br>") {
+            document.getElementById('chargeDetail4').style.display = "none";
+        }
+        if (chargeDetail5 == "<br><br>") {
+            document.getElementById('chargeDetail5').style.display = "none";
+        }
     }
 </script>
 
@@ -47,7 +64,11 @@
                 <details open>
                     <summary><span class="summary">{{ data['charge-title'] }}<!--Passenger failing to produce a ticket--></span></summary>
                     <div class="panel panel-border-narrow charge-details">
-                        {{ data['charge-detail'] }}<span id="chargeDetail2"><br><br>{{ data['charge-detail-2'] }}</span>
+                        {{ data['charge-detail'] }}
+                        <span id="chargeDetail2"><br><br>{{ data['charge-detail-2'] }}</span>
+                        <span id="chargeDetail3"><br><br>{{ data['charge-detail-3'] }}</span>
+                        <span id="chargeDetail4"><br><br>{{ data['charge-detail-4'] }}</span>
+                        <span id="chargeDetail5"><br><br>{{ data['charge-detail-5'] }}</span>
                     </div>
                 </details>
 

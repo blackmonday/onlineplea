@@ -42,7 +42,9 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-title'] = "You have 1 charge"
         req.session.data['charge-detail'] = "On 19/01/2016 At wandsworth bridge rd SW6 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares did use in relation to the journey you were taking a ticket which had been issued for use by another person on terms that it is not transferable."
         req.session.data['charge-detail-2'] = "Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
-        
+        req.session.data['charge-detail-3'] = ""
+        req.session.data['charge-detail-4'] = ""
+        req.session.data['charge-detail-5'] = ""
         
         
     /* TV Licensing */
@@ -70,7 +72,9 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
         req.session.data['charge-detail-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
-        
+        req.session.data['charge-detail-3'] = "TV subscription package: Not stated"
+        req.session.data['charge-detail-4'] = "Occupation:  Not stated"
+        req.session.data['charge-detail-5'] = "Contrary to the Communications Act 2003 and Communications (Television Licensing) Regulations 2004."
        
         
     /* TV Licensing */        
@@ -96,14 +100,17 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['nin'] = "MH 54 55 04 B"
 
-        req.session.data['charge-title'] = "Use a television set without a licence"
-        req.session.data['charge-detail'] = "On 30/05/2018 used a colour television receiver without a licence at the above address."
-        req.session.data['charge-detail-2'] = ""
-        
+        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
+        req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
+        req.session.data['charge-detail-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
+        req.session.data['charge-detail-3'] = "TV subscription package: Not stated"
+        req.session.data['charge-detail-4'] = "Occupation:  Not stated"
+        req.session.data['charge-detail-5'] = "Contrary to the Communications Act 2003 and Communications (Television Licensing) Regulations 2004."
+
         
         
     /* DVLA */
-    } else if ((URN == "DVLA") || (URN == "dvla") || (URN == "29K/WN02ZRR")) {
+    } else if ((URN == "DVLA") || (URN == "dvla") || (URN == "29KWN02ZRR")) {
         req.session.data['prosecutor'] = "DVLA"
         
         req.session.data['defendant-first-name'] = "Sam"
@@ -130,10 +137,13 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['nin'] = ""
 
-        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle WN02ZR"
-        req.session.data['charge-detail'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994.  The previous licence expired on 1/1/2018, and the annual rate of duty was £300."
-        req.session.data['charge-detail-2'] = "Charge Authorised by: Rohan Gye."
-        
+        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle WN02 ZRR"
+        req.session.data['charge-detail'] = "At 12:00 on 21 April 2018, failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02 ZRR on George Street, Croydon. The previous licence expired on 01/01/2018. The annual rate of duty applicable is £250."
+        req.session.data['charge-detail-2'] = "Charge Authorised by: Rohan Gye"
+        req.session.data['charge-detail-3'] = "Contrary to section 29(1) and (3A) of the Vehicle Excise and Registration Act 1994."
+        req.session.data['charge-detail-4'] = ""
+        req.session.data['charge-detail-5'] = ""
+
         
         
     } else {
@@ -158,6 +168,12 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-title'] = "Generic charge title"
         req.session.data['charge-detail'] = "Generic charge detail ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
         req.session.data['charge-detail-2'] = ""
+        req.session.data['charge-detail-3'] = ""
+        req.session.data['charge-detail-4'] = ""
+        req.session.data['charge-detail-5'] = ""
+
+    
+    
     }
     
     /* WELSH OR ENGLISH? */
@@ -177,7 +193,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     //res.redirect('/map/your-details')
         
-    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416") || (URN == "TVL") || (URN == "506123456C") || (URN == "tvl") || (URN == "123123123C") || (URN == "DVLA") || (URN == "dvla") || (URN == "29K/WN02ZRR")) {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416") || (URN == "TVL") || (URN == "506123456C") || (URN == "tvl") || (URN == "123123123C") || (URN == "DVLA") || (URN == "dvla") || (URN == "29KWN02ZRR")) {
         res.redirect('/map/your-details')
     } else {
         res.redirect('/map/find-your-case')
