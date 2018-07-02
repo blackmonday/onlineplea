@@ -26,6 +26,18 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
+        
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['dob-day'] = ""
+        req.session.data['dob-month'] = ""
+        req.session.data['dob-year'] = ""
+        
+        req.session.data['nin'] = ""
 
         req.session.data['charge-title'] = "You have 1 charge"
         req.session.data['charge-detail'] = "On 19/01/2016 At wandsworth bridge rd SW6 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares did use in relation to the journey you were taking a ticket which had been issued for use by another person on terms that it is not transferable."
@@ -42,6 +54,18 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
+
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['dob-day'] = "1"
+        req.session.data['dob-month'] = "1"
+        req.session.data['dob-year'] = "1981"
+
+        req.session.data['nin'] = "MH 54 55 04 B"
 
         req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
@@ -60,6 +84,18 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "AN9 9YZ"
 
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['dob-day'] = "1"
+        req.session.data['dob-month'] = "1"
+        req.session.data['dob-year'] = "1981"
+
+        req.session.data['nin'] = "MH 54 55 04 B"
+
         req.session.data['charge-title'] = "Use a television set without a licence"
         req.session.data['charge-detail'] = "On 30/05/2018 used a colour television receiver without a licence at the above address."
         req.session.data['charge-detail-2'] = ""
@@ -76,6 +112,24 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['dob-day'] = "1"
+        req.session.data['dob-month'] = "1"
+        req.session.data['dob-year'] = "1981"
+
+        req.session.data['nin'] = ""
+
         req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle WN02ZR"
         req.session.data['charge-detail'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994.  The previous licence expired on 1/1/2018, and the annual rate of duty was £300."
         req.session.data['charge-detail-2'] = "Charge Authorised by: Rohan Gye."
@@ -88,6 +142,18 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-line-1'] = "38A Baker Street"
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
+
+        req.session.data['new-defendant-first-name'] = req.session.data['defendant-first-name']
+        req.session.data['new-defendant-last-name'] = req.session.data['defendant-last-name']
+        req.session.data['new-defendant-address-line-1'] = req.session.data['defendant-address-line-1']
+        req.session.data['new-defendant-address-city'] = req.session.data['defendant-address-city']
+        req.session.data['new-defendant-address-postcode'] = req.session.data['defendant-address-postcode']
+
+        req.session.data['dob-day'] = ""
+        req.session.data['dob-month'] = ""
+        req.session.data['dob-year'] = ""
+
+        req.session.data['nin'] = ""
 
         req.session.data['charge-title'] = "Generic charge title"
         req.session.data['charge-detail'] = "Generic charge detail ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
