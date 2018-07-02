@@ -6,11 +6,33 @@
 
 {% block content %}
 
+<script>
+
+    window.onload = function() {
+        // Check for a Welsh postcode
+        var casePostcode = document.getElementById("casePostcode").innerHTML;
+
+        if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
+            document.getElementById('englishLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "block";
+        } else {
+            document.getElementById('englishLanguage').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "none";
+        }
+
+    }
+    
+</script>
+
 {% include "includes/timeout-overlay.html" %}
 
 <main id="content" role="main">
     
     {% include "includes/breadcrumb.html" %}
+    
+    <div id="casePostcode" style="display:none">{{data['case-post-code']}}</div>
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -18,10 +40,31 @@
             <form class="form" action="" method="post">
                             
             <h1 class="heading-xlarge">Your court hearing</h1>
+                
+                <!-- IF A WELSH POSTCODE -->
+                <div class="form-group bottom_30" id="welshLanguage-2" style="display: none">
+                    <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
+                    <fieldset class="inline">
+                        <legend class="form-label heading-small bold">Do you wish to speak Welsh at your court hearing?</legend>
+                        <div class="multiple-choice">
+                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                            <label for="welsh-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                            <label for="welsh-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
 
                 <div class="form-group bottom_0">
                     <fieldset class="inline" data-required data-error="Choose an answer">
-                        <legend class="heading-small">Do you need an interpreter in court?</legend>
+                        <legend class="form-label bold bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
+                        
+                        <!-- IF A WELSH POSTCODE -->
+                        <legend class="form-label heading-small bold" id="welshLanguage" style="display: none">For other languages do you need an interpreter in court?</legend>
+
                         <div class="multiple-choice"  data-target="interpreter-required">
                             <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
                             <label for="interpreter-1">Yes</label>
