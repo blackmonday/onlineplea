@@ -12,7 +12,7 @@
         // Check for a Welsh postcode
         var casePostcode = document.getElementById("casePostcode").innerHTML;
 
-        if ((casePostcode == "LL48 6ER") || (casePostCode == "LL486ER")) {
+        if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
             document.getElementById('englishLanguage').style.display = "none";
             document.getElementById('welshLanguage-2').style.display = "block";
             document.getElementById('welshLanguage').style.display = "block";
@@ -32,7 +32,7 @@
     
     {% include "includes/breadcrumb.html" %}
     
-    <div id="casePostcode" style="display:none">{{data['case-post-code']}}</div>
+    <div id="casePostcode" style="display:">{{data['case-post-code']}}</div>
 
     <div class="grid-row">
         <div class="column-two-thirds">
