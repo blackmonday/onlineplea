@@ -67,7 +67,7 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['dob-month'] = "1"
         req.session.data['dob-year'] = "1981"
 
-        req.session.data['nin'] = "MH 54 55 04 B"
+        req.session.data['nin'] = ""
 
         req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
@@ -98,7 +98,7 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['dob-month'] = "1"
         req.session.data['dob-year'] = "1981"
 
-        req.session.data['nin'] = "MH 54 55 04 B"
+        req.session.data['nin'] = ""
 
         req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
