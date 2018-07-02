@@ -7,10 +7,8 @@
 {% block content %}
 
 <script>
-    
-    window.onload = function() {        
+    window.onload = function() { 
     }
-    
 </script>
 
 {% include "includes/timeout-overlay.html" %}
@@ -49,7 +47,7 @@
                 <details open>
                     <summary><span class="summary">{{ data['charge-title'] }}<!--Passenger failing to produce a ticket--></span></summary>
                     <div class="panel panel-border-narrow charge-details">
-                        {{ data['charge-detail'] }}
+                        {{ data['charge-detail'] }}<span id="chargeDetail2"><br><br>{{ data['charge-detail-2'] }}</span>
                     </div>
                 </details>
 

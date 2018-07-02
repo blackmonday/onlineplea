@@ -18,7 +18,7 @@ router.post('/map/find-your-case', function (req, res) {
     var casePostcode = req.session.data['case-post-code']
 
     /* Transport for London */
-    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416")) {
         req.session.data['prosecutor'] = "Transport for London"
         
         req.session.data['defendant-first-name'] = "Sam"
@@ -27,10 +27,14 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
-        req.session.data['charge-title'] = "Passenger failing to produce a ticket"
-        req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
+        req.session.data['charge-title'] = "You have 1 charge"
+        req.session.data['charge-detail'] = "On 19/01/2016 At wandsworth bridge rd SW6 Being a passenger on a Public Service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares did use in relation to the journey you were taking a ticket which had been issued for use by another person on terms that it is not transferable."
+        req.session.data['charge-detail-2'] = "Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
+        
+        
+        
     /* TV Licensing */
-    } else if ((URN == "TVL") || (URN == "tvl")) {
+    } else if ((URN == "TVL") || (URN == "tvl") || (URN == "506123456C")) {
         req.session.data['prosecutor'] = "TV Licensing"
         
         req.session.data['defendant-first-name'] = "Sam"
@@ -39,8 +43,13 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
-        req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
-        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence."
+        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
+        req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
+        req.session.data['charge-detail-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
+        
+       
+        
+    /* TV Licensing */        
     } else if ((URN == "123123123C")) {
         req.session.data['prosecutor'] = "TV Licensing"
         
@@ -53,8 +62,12 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Use a television set without a licence"
         req.session.data['charge-detail'] = "On 30/05/2018 used a colour television receiver without a licence at the above address."
+        req.session.data['charge-detail-2'] = ""
+        
+        
+        
     /* DVLA */
-    } else if ((URN == "DVLA") || (URN == "dvla")) {
+    } else if ((URN == "DVLA") || (URN == "dvla") || (URN == "29K/WN02ZRR")) {
         req.session.data['prosecutor'] = "DVLA"
         
         req.session.data['defendant-first-name'] = "Sam"
@@ -63,8 +76,12 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "W1 7SX"
 
-        req.session.data['charge-title'] = "Keep a vehicle without a vehicle license"
-        req.session.data['charge-detail'] = "On 01/11/2018 at Chelmsford in the county of Essex Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle WN02ZR"
+        req.session.data['charge-detail'] = "On the 21.04.2018 you kept an unlicensed vehicle registration mark WN02ZRR at 21/4/2018 contrary to Section 29(1) of the Vehicle Excise and Registration Act 1994.  The previous licence expired on 1/1/2018, and the annual rate of duty was £300."
+        req.session.data['charge-detail-2'] = "Charge Authorised by: Rohan Gye."
+        
+        
+        
     } else {
         req.session.data['defendant-first-name'] = "Sam"
         req.session.data['defendant-last-name'] = "Smith"
@@ -74,6 +91,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['charge-title'] = "Generic charge title"
         req.session.data['charge-detail'] = "Generic charge detail ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+        req.session.data['charge-detail-2'] = ""
     }
     
     /* WELSH OR ENGLISH? */
@@ -93,7 +111,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     //res.redirect('/map/your-details')
         
-    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "TVL") || (URN == "tvl") || (URN == "123123123C") || (URN == "DVLA") || (URN == "dvla")) {
+    if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416") || (URN == "TVL") || (URN == "506123456C") || (URN == "tvl") || (URN == "123123123C") || (URN == "DVLA") || (URN == "dvla") || (URN == "29K/WN02ZRR")) {
         res.redirect('/map/your-details')
     } else {
         res.redirect('/map/find-your-case')
