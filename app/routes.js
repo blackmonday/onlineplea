@@ -69,7 +69,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['nin'] = "MH 54 55 04 B"
 
-        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
+        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
         req.session.data['charge-detail-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
         req.session.data['charge-detail-3'] = "TV subscription package: Not stated"
@@ -100,7 +100,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['nin'] = "MH 54 55 04 B"
 
-        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver on 30/05/2018"
+        req.session.data['charge-title'] = "Unlicensed use of a TV Receiver"
         req.session.data['charge-detail'] = "That on 30/05/2018 at the above address you were found to have been using colour TV receiving equipment to watch or record live TV programmes at that address for an unspecified period without an appropriate licence, last using it on 30/05/2018."
         req.session.data['charge-detail-2'] = "A colour TV set was observed from the entrance door to the property to be in use at 20:25 on 30/05/2018, the programme being shown was an episode of EastEnders."
         req.session.data['charge-detail-3'] = "TV subscription package: Not stated"
@@ -137,7 +137,7 @@ router.post('/map/find-your-case', function (req, res) {
 
         req.session.data['nin'] = ""
 
-        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle WN02 ZRR"
+        req.session.data['charge-title'] = "Unlicensed keeping of motor vehicle"
         req.session.data['charge-detail'] = "At 12:00 on 21 April 2018, failed to comply with a declaration or statement made under the Road Vehicles (Statutory Off-Road Notification) Regulations, in that you kept a Green Ford Focus registration mark WN02 ZRR on George Street, Croydon. The previous licence expired on 01/01/2018. The annual rate of duty applicable is £250."
         req.session.data['charge-detail-2'] = "Charge Authorised by: Rohan Gye"
         req.session.data['charge-detail-3'] = "Contrary to section 29(1) and (3A) of the Vehicle Excise and Registration Act 1994."
