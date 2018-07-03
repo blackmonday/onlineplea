@@ -27,29 +27,29 @@
                         <h2 class="heading-medium bottom_5">Contact numbers</h2>
                         <p class="form-hint bottom_10">The court may need to contact you so they can resolve your case quickly - <span class="bold">enter at least one number</span></p>
 
-                        <label class="form-label top_10" for="home-telephone">Home telephone</label>
+                        <label class="form-label bold top_10" for="home-telephone">Home telephone</label>
                         <input class="form-control" id="home-telephone" type="tel" name="home-telephone" value="{{ data['home-telephone'] }}">
 
-                        <label class="form-label top_15" for="mobile-number">Mobile number</label>
+                        <label class="form-label bold top_15" for="mobile-number">Mobile number</label>
                         <input class="form-control" id="mobile-number" type="tel" name="mobile-number" value="{{ data['mobile-number'] }}">
                     </fieldset>
                 </div>
                     
                 <!-- Email address -->
-                <div class="form-group top_30">
+                <div class="form-group top_60">
                     <fieldset data-required data-error="You must provide an email address">
                         <legend>
-                            <label class="heading-medium bottom_5" for="email-address">Email address</label>
-                            <p class="form-hint bottom_5">We will automatically email you confirmation when the plea is submitted</p>
+                            <label class="heading-small top_30 bottom_5" for="email-address">Email address</label>
+                            <p class="form-hint bottom_0">We will automatically email you confirmation when the plea is submitted</p>
                         </legend>
                         <input class="form-control" id="email-address" type="email" name="email-address" value="{{ data['email-address'] }}">
                     </fieldset>
                 </div>
 
                 <!-- Date of birth -->
-                <div class="form-group top_30">
+                <div class="form-group top_60">
                     <fieldset data-required data-error="Date must be in the past - enter valid date">
-                        <legend class="heading-medium bottom_0">Date of birth</legend>
+                        <legend class="heading-small top_30 bottom_0">Date of birth</legend>
                         <p class="form-hint bottom_0" id="dob-hint">For example, 31 3 1980</p>
                         <div class="form-date">
                             <div class="form-group-2">
