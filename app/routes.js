@@ -181,12 +181,20 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['defendant-address-line-2'] = "Portmeirion"
         req.session.data['defendant-address-city'] = "Penrhyndeudraeth"
         req.session.data['defendant-address-postcode'] = "LL48 6ER"
+
+        req.session.data['new-defendant-address-line-2'] = "Portmeirion"
+        req.session.data['new-defendant-address-city'] = "Penrhyndeudraeth"
+        req.session.data['new-defendant-address-postcode'] = "LL48 6ER"
     }
 
     if ((casePostcode == "AN9 9YZ") || (casePostcode == "AN99YZ")) {
         req.session.data['defendant-address-line-2'] = ""
         req.session.data['defendant-address-city'] = "London"
         req.session.data['defendant-address-postcode'] = "AN9 9YZ"
+        
+        req.session.data['new-defendant-address-line-2'] = ""
+        req.session.data['new-defendant-address-city'] = "London"
+        req.session.data['new-defendant-address-postcode'] = "AN9 9YZ"
     }
 
     req.session.data['returnToCYA'] = "No"
