@@ -1,0 +1,68 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<script>
+
+    window.onload = function() {
+    }
+    
+</script>
+
+{% include "includes/timeout-overlay.html" %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+    
+    <div id="casePostcode" style="display:none">{{data['case-post-code']}}</div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+                            
+            <h1 class="heading-xlarge">Your court hearing</h1>
+                
+                <!-- IF A WELSH POSTCODE -->
+                <div class="form-group bottom_30" id="welshLanguage-2">
+                    <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
+                    <fieldset class="inline">
+                        <legend class="form-label heading-small bold">Do you wish to speak Welsh at your court hearing?</legend>
+                        <div class="multiple-choice">
+                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                            <label for="welsh-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                            <label for="welsh-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+            <!--{% include "includes/welsh.html" %}-->
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

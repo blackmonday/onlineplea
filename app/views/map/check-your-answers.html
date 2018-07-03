@@ -307,6 +307,13 @@
             document.getElementById('dobMonth').innerText = "December";
         }
     
+        
+        
+        /* Is a Welsh hearing required? */
+        var welshHearing = document.getElementById('welshHearing').innerText;
+        if (welshHearing == "No") {
+            document.getElementById("welshHearingGroup").style.display = "none";
+        } 
 
     }
         
@@ -319,6 +326,7 @@
     {% include "includes/breadcrumb.html" %}
     
     <span id="URN" style="display: none">{{ data['URN']}}</span>
+    <span id="welshHearing" style="display: ">{{ data['welsh-hearing']}}</span>
 
     <div class="grid-row">
         <div class="column-full">
@@ -329,7 +337,7 @@
                 
                 <!-- --------------- -->
                 <!-- --------------- -->
-                <!-- CIZIZEN DETAILS -->
+                <!-- CITIZEN DETAILS -->
                 <dl class="govuk-check-your-answers cya-questions-short top_0">
                     <div>
                         <dt class="cya-question" style="border: none;">
@@ -460,13 +468,31 @@
 
                     <div>
                         <dt class="cya-question">
-                            information for magistrates
+                            Information for magistrates
                         </dt>
                         <dd class="cya-answer" id="mitigation">
                             {{ data['mitigation'] }}{{ data['not-guilty-mitigation'] }}
                         </dd>
                     </div>
 
+                    <div id="welshHearingGroup">
+                        <dt class="cya-question">
+                            Do you wish to speak Welsh at your court hearing?
+
+                        </dt>
+                        <dd class="cya-answer" id="welshHearingRequired">
+                            {{ data['welsh-hearing'] }}
+                        </dd>
+                    </div>
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     <div id="interpreterRequiredGroup">
                         <dt class="cya-question">
                             Do you need an interpreter in court?

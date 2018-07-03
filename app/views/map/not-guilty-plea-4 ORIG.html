@@ -9,6 +9,19 @@
 <script>
 
     window.onload = function() {
+        // Check for a Welsh postcode
+        var casePostcode = document.getElementById("casePostcode").innerHTML;
+
+        if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
+            document.getElementById('englishLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "block";
+        } else {
+            document.getElementById('englishLanguage').style.display = "block";
+            document.getElementById('welshLanguage').style.display = "none";
+            document.getElementById('welshLanguage-2').style.display = "none";
+        }
+
     }
     
 </script>
@@ -61,6 +74,23 @@
                     </fieldset>
                 </div>
 
+                <!-- IF A WELSH POSTCODE -->
+                <div class="form-group bottom_30" id="welshLanguage-2" style="display: none">
+                    <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
+                    <fieldset class="inline">
+                        <legend class="heading-medium bottom_15">If there is a court hearing do you wish to speak Welsh?</legend>
+                        <div class="multiple-choice">
+                            <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
+                            <label for="welsh-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="welsh-2" type="radio" name="welsh-group" value="No" {{ checked('welsh-group','No') }}>
+                            <label for="welsh-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
                 <div class="form-group bottom_0">
                     <fieldset class="inline top_0" data-required data-error="You must tell us if you need an interpreter in court">
                         <legend class="heading-medium bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>

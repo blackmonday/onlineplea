@@ -16,6 +16,7 @@ router.post('/map/find-your-case', function (req, res) {
     
     var URN = req.session.data['URN']
     var casePostcode = req.session.data['case-post-code']
+    req.session.data['welsh-hearing'] = "No"
 
     /* Transport for London */
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL") || (URN == "21NT5181416")) {
@@ -178,6 +179,8 @@ router.post('/map/find-your-case', function (req, res) {
     
     /* WELSH OR ENGLISH? */
     if ((casePostcode == "LL48 6ER") || (casePostcode == "LL486ER")) {
+        
+        req.session.data['welsh-hearing'] = "Yes"
         req.session.data['defendant-address-line-2'] = "Portmeirion"
         req.session.data['defendant-address-city'] = "Penrhyndeudraeth"
         req.session.data['defendant-address-postcode'] = "LL48 6ER"
@@ -331,9 +334,16 @@ router.post('/map/your-plea', function (req, res) {
 router.post('/map/guilty-plea', function (req, res) {
 
   var plea = req.session.data['do-you-want-to-come-to-court-group']
+  var welshHearing = req.session.data['welsh-hearing']
 
   if (plea == "Yes"){
-    res.redirect('/map/your-court-hearing')
+      
+      if (welshHearing == "No") {
+          res.redirect('/map/your-court-hearing')
+      } else if (welshHearing == "Yes") {
+          res.redirect('/map/your-court-hearing-welsh')
+      }
+      
   } else if (plea == "No"){
       
     if (req.session.data['returnToCYA'] == "Yes") {
@@ -356,6 +366,14 @@ router.post('/map/guilty-plea', function (req, res) {
   } else {
       res.redirect('/map/guilty-plea')
   }
+    
+})
+
+// ************************
+// Your court hearing Welsh
+router.post('/map/your-court-hearing-welsh', function (req, res) {
+
+    res.redirect('/map/your-court-hearing')
     
 })
 
@@ -434,6 +452,29 @@ router.post('/map/not-guilty-plea-2', function (req, res) {
 // ***************
 // Not guilty plea 3
 router.post('/map/not-guilty-plea-3', function (req, res) {
+
+    var welshHearing = req.session.data['welsh-hearing']
+    
+      if (welshHearing == "No") {
+          res.redirect('/map/not-guilty-plea-4')
+      } else if (welshHearing == "Yes") {
+          res.redirect('/map/not-guilty-plea-4-welsh')
+      }
+    
+})
+
+
+
+
+
+
+
+
+
+
+// ************************
+// Your court hearing Welsh
+router.post('/map/not-guilty-plea-4-welsh', function (req, res) {
 
     res.redirect('/map/not-guilty-plea-4')
     
