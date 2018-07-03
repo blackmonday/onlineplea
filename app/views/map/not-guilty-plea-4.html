@@ -39,14 +39,17 @@
             
             <form class="form" action="" method="post">
 
-                <h1 class="heading-xlarge">Not guilty plea</h1>
-                <p class="bottom_30">Provide information for magistrates ahead of your court hearing.</p>
+                <h1 class="heading-xlarge">Attending court</h1>
 
-                <p class="heading-medium">Attending court</p>
+                <div class="panel panel-border-wide bottom_60">
+                    <p>Provide information for magistrates ahead of your court hearing.</p>
+                </div>
+                
+                <!--<p class="heading-medium">Attending court</p>-->
 
                 <div class="form-group bottom_5">
                     <fieldset class="inline" data-required data-error="You must tell us if there are any dates you or your witness can not attend court">
-                        <legend class="heading-small">Are there any dates you or your witness can not attend court?</legend>
+                        <legend class="heading-medium">Are there any dates you or your witness can not attend court?</legend>
                         <div class="multiple-choice"  data-target="dates-to-avoice-required">
                             <input id="dates-to-avoid-1" type="radio" name="dates-to-avoid-group" value="Yes" {{ checked('dates-to-avoid-group','Yes') }}>
                         <label for="dates-to-avoid-1">Yes</label>
@@ -75,7 +78,7 @@
                 <div class="form-group bottom_30" id="welshLanguage-2" style="display: none">
                     <!--<fieldset class="inline" data-required data-error="You must tell us if you wish to speak in Welsh in court">-->
                     <fieldset class="inline">
-                        <legend class="form-label heading-small bold">If there is a court hearing do you wish to speak Welsh?</legend>
+                        <legend class="heading-medium bottom_15">If there is a court hearing do you wish to speak Welsh?</legend>
                         <div class="multiple-choice">
                             <input id="welsh-1" type="radio" name="welsh-group" value="Yes" {{ checked('welsh-group','Yes') }}>
                             <label for="welsh-1">Yes</label>
@@ -90,10 +93,10 @@
                 
                 <div class="form-group bottom_0">
                     <fieldset class="inline top_0" data-required data-error="You must tell us if you need an interpreter in court">
-                        <legend class="form-label bold bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
+                        <legend class="heading-medium bottom_5" id="englishLanguage" style="">Do you need an interpreter in court?</legend>
                         
                         <!-- IF A WELSH POSTCODE -->
-                        <legend class="form-label heading-small bold" id="welshLanguage" style="display: none">For other languages do you need an interpreter in court?</legend>
+                        <legend class="heading-medium bottom_15" id="welshLanguage" style="display: none">For other languages do you need an interpreter in court?</legend>
 
                         <div class="multiple-choice"  data-target="interpreter-required">
                             <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
@@ -126,7 +129,7 @@
                 
             </form>
 
-            {% include "includes/welsh.html" %}
+            <!--{% include "includes/welsh.html" %}-->
 
         </div>
         
